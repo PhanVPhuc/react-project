@@ -1,14 +1,10 @@
 import "./App.css";
-import Header from "./component/Header";
-import Footer from "./component/Footer";
 
-function App() {
+function App(props) {
   return (
-    <>
-      <Header />
-      <p>ALOO</p>
-      <Footer />
-    </>
+    <div>
+      
+    </div>
   );
 }
 
