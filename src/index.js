@@ -8,12 +8,12 @@ import Content from "./component/MainContent";
 import Checkout from "./component/Checkout";
 import Cart from "./component/Cart";
 import Login from "./component/Login";
-import Blog from "./component/Blog";
+import Blog from "./component/Blog/Blog";
 import Error404 from "./component/404";
 import ContactUs from "./component/Contact-us";
 import MyProduct from "./component/Myproduct";
 import ProductDetail from "./component/Productfetail";
-import BlogDetail from "./component/BDetail";
+import BlogDetail from "./component/Blog/BDetail";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

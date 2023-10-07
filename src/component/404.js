@@ -3,11 +3,15 @@ function Error404() {
     <div className="container text-center">
       <div className="logo-404">
         <a href="index.html">
-          <img src="images/home/logo.png" alt="" />
+          <img src="%PUBLIC_URL%/frontend/images/home/logo.png" alt="" />
         </a>
       </div>
       <div className="content-404">
-        <img src="images/404/404.png" className="img-responsive" alt="" />
+        <img
+          src="%PUBLIC_URL%/frontend/images/404/404.png"
+          className="img-responsive"
+          alt=""
+        />
         <h1>
           <b>OPPS!</b> We Couldn’t Find this Page
         </h1>

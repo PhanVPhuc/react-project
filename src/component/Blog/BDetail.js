@@ -258,7 +258,10 @@ function BlogDetail() {
               {/*/price-range*/}
               <div className="shipping text-center">
                 {/*shipping*/}
-                <img src="images/home/shipping.jpg" alt="" />
+                <img
+                  src="%PUBLIC_URL%/frontend/images/home/shipping.jpg"
+                  alt=""
+                />
               </div>
               {/*/shipping*/}
             </div>
@@ -289,7 +292,10 @@ function BlogDetail() {
 								</span> */}
                 </div>
                 <a href>
-                  <img src="images/blog/blog-one.jpg" alt="" />
+                  <img
+                    src="%PUBLIC_URL%/frontend/images/blog/blog-one.jpg"
+                    alt=""
+                  />
                 </a>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
@@ -368,13 +374,16 @@ function BlogDetail() {
             {/*/rating-area*/}
             <div className="socials-share">
               <a href>
-                <img src="images/blog/socials.png" alt="" />
+                <img
+                  src="%PUBLIC_URL%/frontend/images/blog/socials.png"
+                  alt=""
+                />
               </a>
             </div>
             {/*/socials-share*/}
             {/* <div class="media commnets">
 						<a class="pull-left" href="#">
-							<img class="media-object" src="images/blog/man-one.jpg" alt="">
+							<img class="media-object" src="%PUBLIC_URL%/frontend/images/blog/man-one.jpg" alt="">
 						</a>
 						<div class="media-body">
 							<h4 class="media-heading">Annie Davis</h4>
@@ -398,7 +407,7 @@ function BlogDetail() {
                   <a className="pull-left" href="#">
                     <img
                       className="media-object"
-                      src="images/blog/man-two.jpg"
+                      src="%PUBLIC_URL%/frontend/images/blog/man-two.jpg"
                       alt=""
                     />
                   </a>
@@ -431,7 +440,7 @@ function BlogDetail() {
                   <a className="pull-left" href="#">
                     <img
                       className="media-object"
-                      src="images/blog/man-three.jpg"
+                      src="%PUBLIC_URL%/frontend/images/blog/man-three.jpg"
                       alt=""
                     />
                   </a>
@@ -464,7 +473,7 @@ function BlogDetail() {
                   <a className="pull-left" href="#">
                     <img
                       className="media-object"
-                      src="images/blog/man-three.jpg"
+                      src="%PUBLIC_URL%/frontend/images/blog/man-three.jpg"
                       alt=""
                     />
                   </a>
@@ -497,7 +506,7 @@ function BlogDetail() {
                   <a className="pull-left" href="#">
                     <img
                       className="media-object"
-                      src="images/blog/man-three.jpg"
+                      src="%PUBLIC_URL%/frontend/images/blog/man-three.jpg"
                       alt=""
                     />
                   </a>
@@ -530,7 +539,7 @@ function BlogDetail() {
                   <a className="pull-left" href="#">
                     <img
                       className="media-object"
-                      src="images/blog/man-four.jpg"
+                      src="%PUBLIC_URL%/frontend/images/blog/man-four.jpg"
                       alt=""
                     />
                   </a>
@@ -563,7 +572,7 @@ function BlogDetail() {
                   <a className="pull-left" href="#">
                     <img
                       className="media-object"
-                      src="images/blog/man-three.jpg"
+                      src="%PUBLIC_URL%/frontend/images/blog/man-three.jpg"
                       alt=""
                     />
                   </a>
@@ -596,7 +605,7 @@ function BlogDetail() {
                   <a className="pull-left" href="#">
                     <img
                       className="media-object"
-                      src="images/blog/man-three.jpg"
+                      src="%PUBLIC_URL%/frontend/images/blog/man-three.jpg"
                       alt=""
                     />
                   </a>
@@ -629,7 +638,7 @@ function BlogDetail() {
                   <a className="pull-left" href="#">
                     <img
                       className="media-object"
-                      src="images/blog/man-three.jpg"
+                      src="%PUBLIC_URL%/frontend/images/blog/man-three.jpg"
                       alt=""
                     />
                   </a>

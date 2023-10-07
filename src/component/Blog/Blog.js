@@ -258,7 +258,10 @@ function Blog() {
               {/*/price-range*/}
               <div className="shipping text-center">
                 {/*shipping*/}
-                <img src="images/home/shipping.jpg" alt="" />
+                <img
+                  src="%PUBLIC_URL%/frontend/images/home/shipping.jpg"
+                  alt=""
+                />
               </div>
               {/*/shipping*/}
             </div>
@@ -289,7 +292,10 @@ function Blog() {
                   </span>
                 </div>
                 <a href>
-                  <img src="images/blog/blog-one.jpg" alt="" />
+                  <img
+                    src="%PUBLIC_URL%/frontend/images/blog/blog-one.jpg"
+                    alt=""
+                  />
                 </a>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
@@ -326,7 +332,10 @@ function Blog() {
                   </span>
                 </div>
                 <a href>
-                  <img src="images/blog/blog-two.jpg" alt="" />
+                  <img
+                    src="%PUBLIC_URL%/frontend/images/blog/blog-two.jpg"
+                    alt=""
+                  />
                 </a>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
@@ -363,7 +372,10 @@ function Blog() {
                   </span>
                 </div>
                 <a href>
-                  <img src="images/blog/blog-three.jpg" alt="" />
+                  <img
+                    src="%PUBLIC_URL%/frontend/images/blog/blog-three.jpg"
+                    alt=""
+                  />
                 </a>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed

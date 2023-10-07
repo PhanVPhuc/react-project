@@ -43,7 +43,10 @@ function MyProduct() {
                   <tr>
                     <td className="cart_product">
                       <a href>
-                        <img src="images/cart/one.png" alt="" />
+                        <img
+                          src="%PUBLIC_URL%/frontend/images/cart/one.png"
+                          alt=""
+                        />
                       </a>
                     </td>
                     <td className="cart_description">
@@ -87,7 +90,10 @@ function MyProduct() {
                   <tr>
                     <td className="cart_product">
                       <a href>
-                        <img src="images/cart/one.png" alt="" />
+                        <img
+                          src="%PUBLIC_URL%/frontend/images/cart/one.png"
+                          alt=""
+                        />
                       </a>
                     </td>
                     <td className="cart_description">
@@ -131,7 +137,10 @@ function MyProduct() {
                   <tr>
                     <td className="cart_product">
                       <a href>
-                        <img src="images/cart/one.png" alt="" />
+                        <img
+                          src="%PUBLIC_URL%/frontend/images/cart/one.png"
+                          alt=""
+                        />
                       </a>
                     </td>
                     <td className="cart_description">
