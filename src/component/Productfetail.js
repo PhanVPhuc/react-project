@@ -1,4 +1,4 @@
-function productDetail() {
+function ProductDetail() {
   return (
     <section>
       <div className="container">
@@ -821,4 +821,4 @@ function productDetail() {
   );
 }
 
-export default productDetail;
+export default ProductDetail;

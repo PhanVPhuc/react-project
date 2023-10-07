@@ -1,4 +1,4 @@
-function myProduct() {
+function MyProduct() {
   return (
     <section>
       <div className="container">
@@ -182,4 +182,4 @@ function myProduct() {
   );
 }
 
-export default myProduct;
+export default MyProduct;

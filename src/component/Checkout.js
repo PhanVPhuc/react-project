@@ -1,4 +1,4 @@
-function checkout() {
+function Checkout() {
   return (
     <section id="cart_items">
       <div className="container">
@@ -328,4 +328,4 @@ function checkout() {
   );
 }
 
-export default checkout;
+export default Checkout;

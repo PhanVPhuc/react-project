@@ -1,4 +1,4 @@
-function contactUs() {
+function ContactUs() {
   return (
     <div id="contact-page" className="container">
       <div className="bg">
@@ -118,4 +118,4 @@ function contactUs() {
   );
 }
 
-export default contactUs;
+export default ContactUs;

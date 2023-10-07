@@ -1,4 +1,4 @@
-function error404() {
+function Error404() {
   return (
     <div className="container text-center">
       <div className="logo-404">
@@ -23,4 +23,4 @@ function error404() {
   );
 }
 
-export default error404;
+export default Error404;

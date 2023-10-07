@@ -1,4 +1,4 @@
-function login() {
+function Login() {
   return (
     <section id="form">
       {/*form*/}
@@ -47,4 +47,4 @@ function login() {
   );
 }
 
-export default login;
+export default Login;

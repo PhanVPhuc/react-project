@@ -1,4 +1,4 @@
-function cart() {
+function Cart() {
   return (
     <section id="cart_items">
       <div className="container">
@@ -164,4 +164,4 @@ function cart() {
   );
 }
 
-export default cart;
+export default Cart;

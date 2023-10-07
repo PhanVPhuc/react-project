@@ -1,4 +1,4 @@
-function blog() {
+function Blog() {
   return (
     <section>
       <div className="container">
@@ -405,4 +405,4 @@ function blog() {
   );
 }
 
-export default blog;
+export default Blog;

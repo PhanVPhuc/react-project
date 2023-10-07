@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -112,9 +113,9 @@ function Header() {
               <div className="shop-menu clearfix pull-right">
                 <ul className="nav navbar-nav">
                   <li>
-                    <a href>
+                    <Link to="/account">
                       <i className="fa fa-user" /> Account
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     <a href>
@@ -122,19 +123,19 @@ function Header() {
                     </a>
                   </li>
                   <li>
-                    <a href="checkout.html">
+                    <Link to="/check-out">
                       <i className="fa fa-crosshairs" /> Checkout
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="cart.html">
+                    <Link to="/cart">
                       <i className="fa fa-shopping-cart" /> Cart
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="login.html">
+                    <Link to="/login">
                       <i className="fa fa-lock" /> Login
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -164,52 +165,52 @@ function Header() {
               <div className="mainmenu pull-left">
                 <ul className="nav navbar-nav collapse navbar-collapse">
                   <li>
-                    <a href="index.html" className="active">
+                    <Link to="/" className="active">
                       Home
-                    </a>
+                    </Link>
                   </li>
                   <li className="dropdown">
-                    <a href="#">
+                    <Link to="#">
                       Shop
                       <i className="fa fa-angle-down" />
-                    </a>
+                    </Link>
                     <ul role="menu" className="sub-menu">
                       <li>
-                        <a href="shop.html">Products</a>
+                        <Link to="/shop">Products</Link>
                       </li>
                       <li>
-                        <a href="product-details.html">Product Details</a>
+                        <Link to="/product-details">Product Details</Link>
                       </li>
                       <li>
-                        <a href="checkout.html">Checkout</a>
+                        <Link to="/check-out">Checkout</Link>
                       </li>
                       <li>
-                        <a href="cart.html">Cart</a>
+                        <Link to="/cart">Cart</Link>
                       </li>
                       <li>
-                        <a href="login.html">Login</a>
+                        <Link to="/login">Login</Link>
                       </li>
                     </ul>
                   </li>
                   <li className="dropdown">
-                    <a href="#">
+                    <Link to="/Blog">
                       Blog
                       <i className="fa fa-angle-down" />
-                    </a>
+                    </Link>
                     <ul role="menu" className="sub-menu">
                       <li>
-                        <a href="blog.html">Blog List</a>
+                        <Link to="/Blog">Blog List</Link>
                       </li>
                       <li>
-                        <a href="blog-single.html">Blog Single</a>
+                        <Link to="/blog-single">Blog Single</Link>
                       </li>
                     </ul>
                   </li>
                   <li>
-                    <a href="404.html">404</a>
+                    <Link to="/404">404</Link>
                   </li>
                   <li>
-                    <a href="contact-us.html">Contact</a>
+                    <Link to="/contact-us">Contact</Link>
                   </li>
                 </ul>
               </div>
