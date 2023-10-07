@@ -26,10 +26,7 @@ function Cart() {
               <tr>
                 <td className="cart_product">
                   <a href>
-                    <img
-                      src="%PUBLIC_URL%/frontend/images/cart/one.png"
-                      alt=""
-                    />
+                    <img src="images/cart/one.png" alt="" />
                   </a>
                 </td>
                 <td className="cart_description">
@@ -73,10 +70,7 @@ function Cart() {
               <tr>
                 <td className="cart_product">
                   <a href>
-                    <img
-                      src="%PUBLIC_URL%/frontend/images/cart/two.png"
-                      alt=""
-                    />
+                    <img src="images/cart/two.png" alt="" />
                   </a>
                 </td>
                 <td className="cart_description">
@@ -120,10 +114,7 @@ function Cart() {
               <tr>
                 <td className="cart_product">
                   <a href>
-                    <img
-                      src="%PUBLIC_URL%/frontend/images/cart/three.png"
-                      alt=""
-                    />
+                    <img src="images/cart/three.png" alt="" />
                   </a>
                 </td>
                 <td className="cart_description">

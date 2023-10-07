@@ -258,10 +258,7 @@ function ProductDetail() {
               {/*/price-range*/}
               <div className="shipping text-center">
                 {/*shipping*/}
-                <img
-                  src="%PUBLIC_URL%/frontend/%PUBLIC_URL%/frontend/images/home/shipping.jpg"
-                  alt=""
-                />
+                <img src="images/home/shipping.jpg" alt="" />
               </div>
               {/*/shipping*/}
             </div>
@@ -271,10 +268,7 @@ function ProductDetail() {
               {/*product-details*/}
               <div className="col-sm-5">
                 <div className="view-product">
-                  <img
-                    src="%PUBLIC_URL%/frontend/%PUBLIC_URL%/frontend/images/product-details/1.jpg"
-                    alt=""
-                  />
+                  <img src="images/product-details/1.jpg" alt="" />
                   <a href="images/product-details/1.jpg" rel="prettyPhoto">
                     <h3>ZOOM</h3>
                   </a>
@@ -288,62 +282,35 @@ function ProductDetail() {
                   <div className="carousel-inner">
                     <div className="item active">
                       <a href>
-                        <img
-                          src="%PUBLIC_URL%/frontend/%PUBLIC_URL%/frontend/images/product-details/similar1.jpg"
-                          alt=""
-                        />
+                        <img src="images/product-details/similar1.jpg" alt="" />
                       </a>
                       <a href>
-                        <img
-                          src="%PUBLIC_URL%/frontend/%PUBLIC_URL%/frontend/images/product-details/similar2.jpg"
-                          alt=""
-                        />
+                        <img src="images/product-details/similar2.jpg" alt="" />
                       </a>
                       <a href>
-                        <img
-                          src="%PUBLIC_URL%/frontend/%PUBLIC_URL%/frontend/images/product-details/similar3.jpg"
-                          alt=""
-                        />
+                        <img src="images/product-details/similar3.jpg" alt="" />
                       </a>
                     </div>
                     <div className="item">
                       <a href>
-                        <img
-                          src="%PUBLIC_URL%/frontend/%PUBLIC_URL%/frontend/images/product-details/similar1.jpg"
-                          alt=""
-                        />
+                        <img src="images/product-details/similar1.jpg" alt="" />
                       </a>
                       <a href>
-                        <img
-                          src="%PUBLIC_URL%/frontend/%PUBLIC_URL%/frontend/images/product-details/similar2.jpg"
-                          alt=""
-                        />
+                        <img src="images/product-details/similar2.jpg" alt="" />
                       </a>
                       <a href>
-                        <img
-                          src="%PUBLIC_URL%/frontend/%PUBLIC_URL%/frontend/images/product-details/similar3.jpg"
-                          alt=""
-                        />
+                        <img src="images/product-details/similar3.jpg" alt="" />
                       </a>
                     </div>
                     <div className="item">
                       <a href>
-                        <img
-                          src="frontend/images/product-details/similar1.jpg"
-                          alt=""
-                        />
+                        <img src="images/product-details/similar1.jpg" alt="" />
                       </a>
                       <a href>
-                        <img
-                          src="%PUBLIC_URL%/frontend/images/product-details/similar2.jpg"
-                          alt=""
-                        />
+                        <img src="images/product-details/similar2.jpg" alt="" />
                       </a>
                       <a href>
-                        <img
-                          src="%PUBLIC_URL%/frontend/images/product-details/similar3.jpg"
-                          alt=""
-                        />
+                        <img src="images/product-details/similar3.jpg" alt="" />
                       </a>
                     </div>
                   </div>
@@ -368,16 +335,13 @@ function ProductDetail() {
                 <div className="product-information">
                   {/*/product-information*/}
                   <img
-                    src="%PUBLIC_URL%/frontend/images/product-details/new.jpg"
+                    src="images/product-details/new.jpg"
                     className="newarrival"
                     alt=""
                   />
                   <h2>Anne Klein Sleeveless Colorblock Scuba</h2>
                   <p>Web ID: 1089772</p>
-                  <img
-                    src="%PUBLIC_URL%/frontend/images/product-details/rating.png"
-                    alt=""
-                  />
+                  <img src="images/product-details/rating.png" alt="" />
                   <span>
                     <span>US $59</span>
                     <label>Quantity:</label>
@@ -398,7 +362,7 @@ function ProductDetail() {
                   </p>
                   <a href>
                     <img
-                      src="%PUBLIC_URL%/frontend/images/product-details/share.png"
+                      src="images/product-details/share.png"
                       className="share img-responsive"
                       alt=""
                     />
@@ -440,10 +404,7 @@ function ProductDetail() {
                     <div className="product-image-wrapper">
                       <div className="single-products">
                         <div className="productinfo text-center">
-                          <img
-                            src="%PUBLIC_URL%/frontend/images/home/gallery1.jpg"
-                            alt=""
-                          />
+                          <img src="images/home/gallery1.jpg" alt="" />
                           <h2>$56</h2>
                           <p>Easy Polo Black Edition</p>
                           <button
@@ -461,10 +422,7 @@ function ProductDetail() {
                     <div className="product-image-wrapper">
                       <div className="single-products">
                         <div className="productinfo text-center">
-                          <img
-                            src="%PUBLIC_URL%/frontend/images/home/gallery2.jpg"
-                            alt=""
-                          />
+                          <img src="images/home/gallery2.jpg" alt="" />
                           <h2>$56</h2>
                           <p>Easy Polo Black Edition</p>
                           <button
@@ -482,10 +440,7 @@ function ProductDetail() {
                     <div className="product-image-wrapper">
                       <div className="single-products">
                         <div className="productinfo text-center">
-                          <img
-                            src="%PUBLIC_URL%/frontend/images/home/gallery3.jpg"
-                            alt=""
-                          />
+                          <img src="images/home/gallery3.jpg" alt="" />
                           <h2>$56</h2>
                           <p>Easy Polo Black Edition</p>
                           <button
@@ -503,10 +458,7 @@ function ProductDetail() {
                     <div className="product-image-wrapper">
                       <div className="single-products">
                         <div className="productinfo text-center">
-                          <img
-                            src="%PUBLIC_URL%/frontend/images/home/gallery4.jpg"
-                            alt=""
-                          />
+                          <img src="images/home/gallery4.jpg" alt="" />
                           <h2>$56</h2>
                           <p>Easy Polo Black Edition</p>
                           <button
@@ -526,10 +478,7 @@ function ProductDetail() {
                     <div className="product-image-wrapper">
                       <div className="single-products">
                         <div className="productinfo text-center">
-                          <img
-                            src="%PUBLIC_URL%/frontend/images/home/gallery1.jpg"
-                            alt=""
-                          />
+                          <img src="images/home/gallery1.jpg" alt="" />
                           <h2>$56</h2>
                           <p>Easy Polo Black Edition</p>
                           <button
@@ -547,10 +496,7 @@ function ProductDetail() {
                     <div className="product-image-wrapper">
                       <div className="single-products">
                         <div className="productinfo text-center">
-                          <img
-                            src="%PUBLIC_URL%/frontend/images/home/gallery3.jpg"
-                            alt=""
-                          />
+                          <img src="images/home/gallery3.jpg" alt="" />
                           <h2>$56</h2>
                           <p>Easy Polo Black Edition</p>
                           <button
@@ -568,10 +514,7 @@ function ProductDetail() {
                     <div className="product-image-wrapper">
                       <div className="single-products">
                         <div className="productinfo text-center">
-                          <img
-                            src="%PUBLIC_URL%/frontend/images/home/gallery2.jpg"
-                            alt=""
-                          />
+                          <img src="images/home/gallery2.jpg" alt="" />
                           <h2>$56</h2>
                           <p>Easy Polo Black Edition</p>
                           <button
@@ -589,10 +532,7 @@ function ProductDetail() {
                     <div className="product-image-wrapper">
                       <div className="single-products">
                         <div className="productinfo text-center">
-                          <img
-                            src="%PUBLIC_URL%/frontend/images/home/gallery4.jpg"
-                            alt=""
-                          />
+                          <img src="images/home/gallery4.jpg" alt="" />
                           <h2>$56</h2>
                           <p>Easy Polo Black Edition</p>
                           <button
@@ -612,10 +552,7 @@ function ProductDetail() {
                     <div className="product-image-wrapper">
                       <div className="single-products">
                         <div className="productinfo text-center">
-                          <img
-                            src="%PUBLIC_URL%/frontend/images/home/gallery1.jpg"
-                            alt=""
-                          />
+                          <img src="images/home/gallery1.jpg" alt="" />
                           <h2>$56</h2>
                           <p>Easy Polo Black Edition</p>
                           <button
@@ -633,10 +570,7 @@ function ProductDetail() {
                     <div className="product-image-wrapper">
                       <div className="single-products">
                         <div className="productinfo text-center">
-                          <img
-                            src="%PUBLIC_URL%/frontend/images/home/gallery2.jpg"
-                            alt=""
-                          />
+                          <img src="images/home/gallery2.jpg" alt="" />
                           <h2>$56</h2>
                           <p>Easy Polo Black Edition</p>
                           <button
@@ -654,10 +588,7 @@ function ProductDetail() {
                     <div className="product-image-wrapper">
                       <div className="single-products">
                         <div className="productinfo text-center">
-                          <img
-                            src="%PUBLIC_URL%/frontend/images/home/gallery3.jpg"
-                            alt=""
-                          />
+                          <img src="images/home/gallery3.jpg" alt="" />
                           <h2>$56</h2>
                           <p>Easy Polo Black Edition</p>
                           <button
@@ -675,10 +606,7 @@ function ProductDetail() {
                     <div className="product-image-wrapper">
                       <div className="single-products">
                         <div className="productinfo text-center">
-                          <img
-                            src="%PUBLIC_URL%/frontend/images/home/gallery4.jpg"
-                            alt=""
-                          />
+                          <img src="images/home/gallery4.jpg" alt="" />
                           <h2>$56</h2>
                           <p>Easy Polo Black Edition</p>
                           <button
@@ -734,10 +662,7 @@ function ProductDetail() {
                       </span>
                       <textarea name defaultValue={""} />
                       <b>Rating: </b>{" "}
-                      <img
-                        src="%PUBLIC_URL%/frontend/images/product-details/rating.png"
-                        alt=""
-                      />
+                      <img src="images/product-details/rating.png" alt="" />
                       <button
                         type="button"
                         className="btn btn-default pull-right"
@@ -764,10 +689,7 @@ function ProductDetail() {
                       <div className="product-image-wrapper">
                         <div className="single-products">
                           <div className="productinfo text-center">
-                            <img
-                              src="%PUBLIC_URL%/frontend/images/home/recommend1.jpg"
-                              alt=""
-                            />
+                            <img src="images/home/recommend1.jpg" alt="" />
                             <h2>$56</h2>
                             <p>Easy Polo Black Edition</p>
                             <button
@@ -785,10 +707,7 @@ function ProductDetail() {
                       <div className="product-image-wrapper">
                         <div className="single-products">
                           <div className="productinfo text-center">
-                            <img
-                              src="%PUBLIC_URL%/frontend/images/home/recommend2.jpg"
-                              alt=""
-                            />
+                            <img src="images/home/recommend2.jpg" alt="" />
                             <h2>$56</h2>
                             <p>Easy Polo Black Edition</p>
                             <button
@@ -806,10 +725,7 @@ function ProductDetail() {
                       <div className="product-image-wrapper">
                         <div className="single-products">
                           <div className="productinfo text-center">
-                            <img
-                              src="%PUBLIC_URL%/frontend/images/home/recommend3.jpg"
-                              alt=""
-                            />
+                            <img src="images/home/recommend3.jpg" alt="" />
                             <h2>$56</h2>
                             <p>Easy Polo Black Edition</p>
                             <button
@@ -829,10 +745,7 @@ function ProductDetail() {
                       <div className="product-image-wrapper">
                         <div className="single-products">
                           <div className="productinfo text-center">
-                            <img
-                              src="%PUBLIC_URL%/frontend/images/home/recommend1.jpg"
-                              alt=""
-                            />
+                            <img src="images/home/recommend1.jpg" alt="" />
                             <h2>$56</h2>
                             <p>Easy Polo Black Edition</p>
                             <button
@@ -850,10 +763,7 @@ function ProductDetail() {
                       <div className="product-image-wrapper">
                         <div className="single-products">
                           <div className="productinfo text-center">
-                            <img
-                              src="%PUBLIC_URL%/frontend/images/home/recommend2.jpg"
-                              alt=""
-                            />
+                            <img src="images/home/recommend2.jpg" alt="" />
                             <h2>$56</h2>
                             <p>Easy Polo Black Edition</p>
                             <button
@@ -871,10 +781,7 @@ function ProductDetail() {
                       <div className="product-image-wrapper">
                         <div className="single-products">
                           <div className="productinfo text-center">
-                            <img
-                              src="%PUBLIC_URL%/frontend/images/home/recommend3.jpg"
-                              alt=""
-                            />
+                            <img src="images/home/recommend3.jpg" alt="" />
                             <h2>$56</h2>
                             <p>Easy Polo Black Edition</p>
                             <button

@@ -21,10 +21,7 @@ function Footer() {
                 <div className="video-gallery text-center">
                   <a href="#">
                     <div className="iframe-img">
-                      <img
-                        src="%PUBLIC_URL%/frontend/images/home/iframe1.png"
-                        alt=""
-                      />
+                      <img src="images/home/iframe1.png" alt="" />
                     </div>
                     <div className="overlay-icon">
                       <i className="fa fa-play-circle-o" />
@@ -38,10 +35,7 @@ function Footer() {
                 <div className="video-gallery text-center">
                   <a href="#">
                     <div className="iframe-img">
-                      <img
-                        src="%PUBLIC_URL%/frontend/images/home/iframe2.png"
-                        alt=""
-                      />
+                      <img src="images/home/iframe2.png" alt="" />
                     </div>
                     <div className="overlay-icon">
                       <i className="fa fa-play-circle-o" />
@@ -55,10 +49,7 @@ function Footer() {
                 <div className="video-gallery text-center">
                   <a href="#">
                     <div className="iframe-img">
-                      <img
-                        src="%PUBLIC_URL%/frontend/images/home/iframe3.png"
-                        alt=""
-                      />
+                      <img src="images/home/iframe3.png" alt="" />
                     </div>
                     <div className="overlay-icon">
                       <i className="fa fa-play-circle-o" />
@@ -72,10 +63,7 @@ function Footer() {
                 <div className="video-gallery text-center">
                   <a href="#">
                     <div className="iframe-img">
-                      <img
-                        src="%PUBLIC_URL%/frontend/images/home/iframe4.png"
-                        alt=""
-                      />
+                      <img src="images/home/iframe4.png" alt="" />
                     </div>
                     <div className="overlay-icon">
                       <i className="fa fa-play-circle-o" />
@@ -88,7 +76,7 @@ function Footer() {
             </div>
             <div className="col-sm-3">
               <div className="address">
-                <img src="%PUBLIC_URL%/frontend/images/home/map.png" alt="" />
+                <img src="images/home/map.png" alt="" />
                 <p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
               </div>
             </div>

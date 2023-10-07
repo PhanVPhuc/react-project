@@ -38,12 +38,12 @@ function Content() {
                     </div>
                     <div className="col-sm-6">
                       <img
-                        src="frontend/images/home/girl1.jpg"
+                        src="images/home/girl1.jpg"
                         className="girl img-responsive"
                         alt=""
                       />
                       <img
-                        src="frontend/images/home/pricing.png"
+                        src="images/home/pricing.png"
                         className="pricing"
                         alt=""
                       />
@@ -66,12 +66,12 @@ function Content() {
                     </div>
                     <div className="col-sm-6">
                       <img
-                        src="frontend/images/home/girl2.jpg"
+                        src="images/home/girl2.jpg"
                         className="girl img-responsive"
                         alt=""
                       />
                       <img
-                        src="frontend/images/home/pricing.png"
+                        src="images/home/pricing.png"
                         className="pricing"
                         alt=""
                       />
@@ -94,12 +94,12 @@ function Content() {
                     </div>
                     <div className="col-sm-6">
                       <img
-                        src="frontend/images/home/girl3.jpg"
+                        src="images/home/girl3.jpg"
                         className="girl img-responsive"
                         alt=""
                       />
                       <img
-                        src="frontend/images/home/pricing.png"
+                        src="images/home/pricing.png"
                         className="pricing"
                         alt=""
                       />
@@ -379,10 +379,7 @@ function Content() {
                 {/*/price-range*/}
                 <div className="shipping text-center">
                   {/*shipping*/}
-                  <img
-                    src="frontend/%PUBLIC_URL%/frontend/images/home/shipping.jpg"
-                    alt=""
-                  />
+                  <img src="images/home/shipping.jpg" alt="" />
                 </div>
                 {/*/shipping*/}
               </div>
@@ -395,10 +392,7 @@ function Content() {
                   <div className="product-image-wrapper">
                     <div className="single-products">
                       <div className="productinfo text-center">
-                        <img
-                          src="frontend/%PUBLIC_URL%/frontend/images/home/product1.jpg"
-                          alt=""
-                        />
+                        <img src="images/home/product1.jpg" alt="" />
                         <h2>$56</h2>
                         <p>Easy Polo Black Edition</p>
                         <a href="#" className="btn btn-default add-to-cart">
@@ -439,10 +433,7 @@ function Content() {
                   <div className="product-image-wrapper">
                     <div className="single-products">
                       <div className="productinfo text-center">
-                        <img
-                          src="frontend/%PUBLIC_URL%/frontend/images/home/product2.jpg"
-                          alt=""
-                        />
+                        <img src="images/home/product2.jpg" alt="" />
                         <h2>$56</h2>
                         <p>Easy Polo Black Edition</p>
                         <a href="#" className="btn btn-default add-to-cart">
@@ -483,10 +474,7 @@ function Content() {
                   <div className="product-image-wrapper">
                     <div className="single-products">
                       <div className="productinfo text-center">
-                        <img
-                          src="frontend/%PUBLIC_URL%/frontend/images/home/product3.jpg"
-                          alt=""
-                        />
+                        <img src="images/home/product3.jpg" alt="" />
                         <h2>$56</h2>
                         <p>Easy Polo Black Edition</p>
                         <a href="#" className="btn btn-default add-to-cart">
@@ -527,10 +515,7 @@ function Content() {
                   <div className="product-image-wrapper">
                     <div className="single-products">
                       <div className="productinfo text-center">
-                        <img
-                          src="frontend/%PUBLIC_URL%/frontend/images/home/product4.jpg"
-                          alt=""
-                        />
+                        <img src="images/home/product4.jpg" alt="" />
                         <h2>$56</h2>
                         <p>Easy Polo Black Edition</p>
                         <a href="#" className="btn btn-default add-to-cart">
@@ -548,11 +533,7 @@ function Content() {
                           </a>
                         </div>
                       </div>
-                      <img
-                        src="frontend/%PUBLIC_URL%/frontend/images/home/new.png"
-                        className="new"
-                        alt=""
-                      />
+                      <img src="images/home/new.png" className="new" alt="" />
                     </div>
                     <div className="choose">
                       <ul className="nav nav-pills nav-justified">
@@ -576,10 +557,7 @@ function Content() {
                   <div className="product-image-wrapper">
                     <div className="single-products">
                       <div className="productinfo text-center">
-                        <img
-                          src="frontend/%PUBLIC_URL%/frontend/images/home/product5.jpg"
-                          alt=""
-                        />
+                        <img src="images/home/product5.jpg" alt="" />
                         <h2>$56</h2>
                         <p>Easy Polo Black Edition</p>
                         <a href="#" className="btn btn-default add-to-cart">
@@ -597,11 +575,7 @@ function Content() {
                           </a>
                         </div>
                       </div>
-                      <img
-                        src="frontend/%PUBLIC_URL%/frontend/images/home/sale.png"
-                        className="new"
-                        alt=""
-                      />
+                      <img src="images/home/sale.png" className="new" alt="" />
                     </div>
                     <div className="choose">
                       <ul className="nav nav-pills nav-justified">
@@ -625,10 +599,7 @@ function Content() {
                   <div className="product-image-wrapper">
                     <div className="single-products">
                       <div className="productinfo text-center">
-                        <img
-                          src="frontend/%PUBLIC_URL%/frontend/images/home/product6.jpg"
-                          alt=""
-                        />
+                        <img src="images/home/product6.jpg" alt="" />
                         <h2>$56</h2>
                         <p>Easy Polo Black Edition</p>
                         <a href="#" className="btn btn-default add-to-cart">
@@ -704,10 +675,7 @@ function Content() {
                       <div className="product-image-wrapper">
                         <div className="single-products">
                           <div className="productinfo text-center">
-                            <img
-                              src="frontend/%PUBLIC_URL%/frontend/images/home/gallery1.jpg"
-                              alt=""
-                            />
+                            <img src="images/home/gallery1.jpg" alt="" />
                             <h2>$56</h2>
                             <p>Easy Polo Black Edition</p>
                             <a href="#" className="btn btn-default add-to-cart">
@@ -722,10 +690,7 @@ function Content() {
                       <div className="product-image-wrapper">
                         <div className="single-products">
                           <div className="productinfo text-center">
-                            <img
-                              src="frontend/%PUBLIC_URL%/frontend/images/home/gallery2.jpg"
-                              alt=""
-                            />
+                            <img src="images/home/gallery2.jpg" alt="" />
                             <h2>$56</h2>
                             <p>Easy Polo Black Edition</p>
                             <a href="#" className="btn btn-default add-to-cart">
@@ -740,10 +705,7 @@ function Content() {
                       <div className="product-image-wrapper">
                         <div className="single-products">
                           <div className="productinfo text-center">
-                            <img
-                              src="frontend/%PUBLIC_URL%/frontend/images/home/gallery3.jpg"
-                              alt=""
-                            />
+                            <img src="images/home/gallery3.jpg" alt="" />
                             <h2>$56</h2>
                             <p>Easy Polo Black Edition</p>
                             <a href="#" className="btn btn-default add-to-cart">
@@ -758,10 +720,7 @@ function Content() {
                       <div className="product-image-wrapper">
                         <div className="single-products">
                           <div className="productinfo text-center">
-                            <img
-                              src="frontend/%PUBLIC_URL%/frontend/images/home/gallery4.jpg"
-                              alt=""
-                            />
+                            <img src="images/home/gallery4.jpg" alt="" />
                             <h2>$56</h2>
                             <p>Easy Polo Black Edition</p>
                             <a href="#" className="btn btn-default add-to-cart">
@@ -778,10 +737,7 @@ function Content() {
                       <div className="product-image-wrapper">
                         <div className="single-products">
                           <div className="productinfo text-center">
-                            <img
-                              src="frontend/%PUBLIC_URL%/frontend/images/home/gallery4.jpg"
-                              alt=""
-                            />
+                            <img src="images/home/gallery4.jpg" alt="" />
                             <h2>$56</h2>
                             <p>Easy Polo Black Edition</p>
                             <a href="#" className="btn btn-default add-to-cart">
@@ -796,10 +752,7 @@ function Content() {
                       <div className="product-image-wrapper">
                         <div className="single-products">
                           <div className="productinfo text-center">
-                            <img
-                              src="frontend/%PUBLIC_URL%/frontend/images/home/gallery3.jpg"
-                              alt=""
-                            />
+                            <img src="images/home/gallery3.jpg" alt="" />
                             <h2>$56</h2>
                             <p>Easy Polo Black Edition</p>
                             <a href="#" className="btn btn-default add-to-cart">
@@ -814,10 +767,7 @@ function Content() {
                       <div className="product-image-wrapper">
                         <div className="single-products">
                           <div className="productinfo text-center">
-                            <img
-                              src="frontend/%PUBLIC_URL%/frontend/images/home/gallery2.jpg"
-                              alt=""
-                            />
+                            <img src="images/home/gallery2.jpg" alt="" />
                             <h2>$56</h2>
                             <p>Easy Polo Black Edition</p>
                             <a href="#" className="btn btn-default add-to-cart">
@@ -832,10 +782,7 @@ function Content() {
                       <div className="product-image-wrapper">
                         <div className="single-products">
                           <div className="productinfo text-center">
-                            <img
-                              src="frontend/%PUBLIC_URL%/frontend/images/home/gallery1.jpg"
-                              alt=""
-                            />
+                            <img src="images/home/gallery1.jpg" alt="" />
                             <h2>$56</h2>
                             <p>Easy Polo Black Edition</p>
                             <a href="#" className="btn btn-default add-to-cart">
@@ -852,10 +799,7 @@ function Content() {
                       <div className="product-image-wrapper">
                         <div className="single-products">
                           <div className="productinfo text-center">
-                            <img
-                              src="frontend/%PUBLIC_URL%/frontend/images/home/gallery3.jpg"
-                              alt=""
-                            />
+                            <img src="images/home/gallery3.jpg" alt="" />
                             <h2>$56</h2>
                             <p>Easy Polo Black Edition</p>
                             <a href="#" className="btn btn-default add-to-cart">
@@ -870,10 +814,7 @@ function Content() {
                       <div className="product-image-wrapper">
                         <div className="single-products">
                           <div className="productinfo text-center">
-                            <img
-                              src="frontend/%PUBLIC_URL%/frontend/images/home/gallery4.jpg"
-                              alt=""
-                            />
+                            <img src="images/home/gallery4.jpg" alt="" />
                             <h2>$56</h2>
                             <p>Easy Polo Black Edition</p>
                             <a href="#" className="btn btn-default add-to-cart">
@@ -888,10 +829,7 @@ function Content() {
                       <div className="product-image-wrapper">
                         <div className="single-products">
                           <div className="productinfo text-center">
-                            <img
-                              src="frontend/%PUBLIC_URL%/frontend/images/home/gallery1.jpg"
-                              alt=""
-                            />
+                            <img src="images/home/gallery1.jpg" alt="" />
                             <h2>$56</h2>
                             <p>Easy Polo Black Edition</p>
                             <a href="#" className="btn btn-default add-to-cart">
@@ -906,10 +844,7 @@ function Content() {
                       <div className="product-image-wrapper">
                         <div className="single-products">
                           <div className="productinfo text-center">
-                            <img
-                              src="frontend/%PUBLIC_URL%/frontend/images/home/gallery2.jpg"
-                              alt=""
-                            />
+                            <img src="images/home/gallery2.jpg" alt="" />
                             <h2>$56</h2>
                             <p>Easy Polo Black Edition</p>
                             <a href="#" className="btn btn-default add-to-cart">
@@ -926,10 +861,7 @@ function Content() {
                       <div className="product-image-wrapper">
                         <div className="single-products">
                           <div className="productinfo text-center">
-                            <img
-                              src="frontend/%PUBLIC_URL%/frontend/images/home/gallery1.jpg"
-                              alt=""
-                            />
+                            <img src="images/home/gallery1.jpg" alt="" />
                             <h2>$56</h2>
                             <p>Easy Polo Black Edition</p>
                             <a href="#" className="btn btn-default add-to-cart">
@@ -944,10 +876,7 @@ function Content() {
                       <div className="product-image-wrapper">
                         <div className="single-products">
                           <div className="productinfo text-center">
-                            <img
-                              src="frontend/%PUBLIC_URL%/frontend/images/home/gallery2.jpg"
-                              alt=""
-                            />
+                            <img src="images/home/gallery2.jpg" alt="" />
                             <h2>$56</h2>
                             <p>Easy Polo Black Edition</p>
                             <a href="#" className="btn btn-default add-to-cart">
@@ -962,10 +891,7 @@ function Content() {
                       <div className="product-image-wrapper">
                         <div className="single-products">
                           <div className="productinfo text-center">
-                            <img
-                              src="frontend/%PUBLIC_URL%/frontend/images/home/gallery3.jpg"
-                              alt=""
-                            />
+                            <img src="images/home/gallery3.jpg" alt="" />
                             <h2>$56</h2>
                             <p>Easy Polo Black Edition</p>
                             <a href="#" className="btn btn-default add-to-cart">
@@ -980,10 +906,7 @@ function Content() {
                       <div className="product-image-wrapper">
                         <div className="single-products">
                           <div className="productinfo text-center">
-                            <img
-                              src="frontend/%PUBLIC_URL%/frontend/images/home/gallery4.jpg"
-                              alt=""
-                            />
+                            <img src="images/home/gallery4.jpg" alt="" />
                             <h2>$56</h2>
                             <p>Easy Polo Black Edition</p>
                             <a href="#" className="btn btn-default add-to-cart">
@@ -1000,10 +923,7 @@ function Content() {
                       <div className="product-image-wrapper">
                         <div className="single-products">
                           <div className="productinfo text-center">
-                            <img
-                              src="frontend/%PUBLIC_URL%/frontend/images/home/gallery2.jpg"
-                              alt=""
-                            />
+                            <img src="images/home/gallery2.jpg" alt="" />
                             <h2>$56</h2>
                             <p>Easy Polo Black Edition</p>
                             <a href="#" className="btn btn-default add-to-cart">
@@ -1018,10 +938,7 @@ function Content() {
                       <div className="product-image-wrapper">
                         <div className="single-products">
                           <div className="productinfo text-center">
-                            <img
-                              src="frontend/%PUBLIC_URL%/frontend/images/home/gallery4.jpg"
-                              alt=""
-                            />
+                            <img src="images/home/gallery4.jpg" alt="" />
                             <h2>$56</h2>
                             <p>Easy Polo Black Edition</p>
                             <a href="#" className="btn btn-default add-to-cart">
@@ -1036,10 +953,7 @@ function Content() {
                       <div className="product-image-wrapper">
                         <div className="single-products">
                           <div className="productinfo text-center">
-                            <img
-                              src="frontend/%PUBLIC_URL%/frontend/images/home/gallery3.jpg"
-                              alt=""
-                            />
+                            <img src="images/home/gallery3.jpg" alt="" />
                             <h2>$56</h2>
                             <p>Easy Polo Black Edition</p>
                             <a href="#" className="btn btn-default add-to-cart">
@@ -1054,10 +968,7 @@ function Content() {
                       <div className="product-image-wrapper">
                         <div className="single-products">
                           <div className="productinfo text-center">
-                            <img
-                              src="frontend/%PUBLIC_URL%/frontend/images/home/gallery1.jpg"
-                              alt=""
-                            />
+                            <img src="images/home/gallery1.jpg" alt="" />
                             <h2>$56</h2>
                             <p>Easy Polo Black Edition</p>
                             <a href="#" className="btn btn-default add-to-cart">
@@ -1086,10 +997,7 @@ function Content() {
                         <div className="product-image-wrapper">
                           <div className="single-products">
                             <div className="productinfo text-center">
-                              <img
-                                src="frontend/%PUBLIC_URL%/frontend/images/home/recommend1.jpg"
-                                alt=""
-                              />
+                              <img src="images/home/recommend1.jpg" alt="" />
                               <h2>$56</h2>
                               <p>Easy Polo Black Edition</p>
                               <a
@@ -1107,10 +1015,7 @@ function Content() {
                         <div className="product-image-wrapper">
                           <div className="single-products">
                             <div className="productinfo text-center">
-                              <img
-                                src="frontend/%PUBLIC_URL%/frontend/images/home/recommend2.jpg"
-                                alt=""
-                              />
+                              <img src="images/home/recommend2.jpg" alt="" />
                               <h2>$56</h2>
                               <p>Easy Polo Black Edition</p>
                               <a
@@ -1128,10 +1033,7 @@ function Content() {
                         <div className="product-image-wrapper">
                           <div className="single-products">
                             <div className="productinfo text-center">
-                              <img
-                                src="frontend/%PUBLIC_URL%/frontend/images/home/recommend3.jpg"
-                                alt=""
-                              />
+                              <img src="images/home/recommend3.jpg" alt="" />
                               <h2>$56</h2>
                               <p>Easy Polo Black Edition</p>
                               <a
@@ -1151,10 +1053,7 @@ function Content() {
                         <div className="product-image-wrapper">
                           <div className="single-products">
                             <div className="productinfo text-center">
-                              <img
-                                src="frontend/%PUBLIC_URL%/frontend/images/home/recommend1.jpg"
-                                alt=""
-                              />
+                              <img src="images/home/recommend1.jpg" alt="" />
                               <h2>$56</h2>
                               <p>Easy Polo Black Edition</p>
                               <a
@@ -1172,10 +1071,7 @@ function Content() {
                         <div className="product-image-wrapper">
                           <div className="single-products">
                             <div className="productinfo text-center">
-                              <img
-                                src="frontend/%PUBLIC_URL%/frontend/images/home/recommend2.jpg"
-                                alt=""
-                              />
+                              <img src="images/home/recommend2.jpg" alt="" />
                               <h2>$56</h2>
                               <p>Easy Polo Black Edition</p>
                               <a
@@ -1193,10 +1089,7 @@ function Content() {
                         <div className="product-image-wrapper">
                           <div className="single-products">
                             <div className="productinfo text-center">
-                              <img
-                                src="frontend/%PUBLIC_URL%/frontend/images/home/recommend3.jpg"
-                                alt=""
-                              />
+                              <img src="images/home/recommend3.jpg" alt="" />
                               <h2>$56</h2>
                               <p>Easy Polo Black Edition</p>
                               <a
