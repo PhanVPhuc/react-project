@@ -1,13 +1,20 @@
 import "./App.css";
 import Footer from "./component/Footer";
 import Header from "./component/Header";
-import Content from "./component/MainContent";
+import Sidebar from "./component/Sidebar";
 
 function App(props) {
   return (
     <div>
       <Header />
-      <Content />
+      <section>
+        <div className="container">
+          <div className="row">
+            <Sidebar />
+            {props.children}
+          </div>
+        </div>
+      </section>
       <Footer />
     </div>
   );
