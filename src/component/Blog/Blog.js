@@ -45,6 +45,8 @@ function Blog() {
         </div>
         {/* Giống bài 18 , lấy api về đưa vào usetate rồi xuất ra blog bằng hàm renderDâta
 
+        *làm thẳng vào file blog  ( lấy api phần nào , làm phần đó : lấy api file nào , làm file đó )
+
         Link Api : http://localhost/laravel8/laravel8/public/api/blog 
         nhớ bật Xampp trước , mở apache và sql
         
