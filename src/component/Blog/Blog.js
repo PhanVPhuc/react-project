@@ -62,9 +62,9 @@ function Blog() {
               </span>
             </div>
             <a href>
-              {/* <img src="frontend/images/blog/blog-one.jpg" alt="" />
+              <img src="frontend/images/blog/blog-one.jpg" alt="" />
               
-              */}
+             
               {/* <Image image={value.image} han /> */}
             </a>
             <p>{value.content}</p>
