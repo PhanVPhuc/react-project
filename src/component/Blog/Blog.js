@@ -1,6 +1,86 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 
 function Blog() {
+  /* Giống bài 18 , lấy api về đưa vào usetate rồi xuất ra blog bằng hàm renderDâta
+
+        *làm thẳng vào file blog  ( lấy api phần nào , làm phần đó : lấy api file nào , làm file đó )
+
+        Link Api : http://localhost/laravel8/laravel8/public/api/blog 
+        nhớ bật Xampp trước , mở apache và sql
+        
+        ở return chính : 
+        <div className="container">
+        {renderData}
+        </div>
+
+
+        làm xong làm tiếp blogList
+        */
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    axios
+      .get("http://localhost/laravel8/laravel8/public/api/blog ")
+      .then((res) => {
+        setData(res.data);
+      })
+      .catch((error) => console.log(error));
+  }, []);
+
+  function renderData() {
+    // console.log(data);
+    if (Object.keys(data).length > 0) {
+      //run obj map
+      const blogData = data.blog; // move to 1 obj layer
+      // console.log(blogData.data); // check
+      const dataArray = blogData.data; // move to data which contain what we need to display
+      console.log(dataArray); // check
+      return dataArray.map((value, key) => {
+        // run array map
+        return (
+          <div key={key}>
+            <h3> {value.title} </h3>
+            <div className="post-meta">
+              <ul>
+                <li>
+                  <i className="fa fa-user" /> {value.id}
+                </li>
+                <li>
+                  <i className="fa fa-clock-o" /> 1:33 pm
+                </li>
+                <li>
+                  <i className="fa fa-calendar" /> DEC 5, 2013
+                </li>
+              </ul>
+              <span>
+                <i className="fa fa-star" />
+                <i className="fa fa-star" />
+                <i className="fa fa-star" />
+                <i className="fa fa-star" />
+                <i className="fa fa-star-half-o" />
+              </span>
+            </div>
+            <a href>
+              {/* <img src="frontend/images/blog/blog-one.jpg" alt="" />
+              
+              */}
+              {/* <Image image={value.image} han /> */}
+            </a>
+            <p>{value.content}</p>
+            <Link className="btn btn-primary" to="/blog-single">
+              Read More
+            </Link>
+          </div>
+        );
+      });
+    }
+    // if (Object.keys(data).length > 0) {
+    //   const blogData = data.blog;
+    //   console.log(blogData.data);
+    // }
+  }
+
   return (
     <div className="col-sm-9">
       <div className="blog-post-area">
@@ -29,7 +109,7 @@ function Blog() {
             </span>
           </div>
           <a href>
-            <img src="%PUBLIC_URL%/frontend/images/blog/blog-one.jpg" alt="" />
+            <img src="frontend/images/blog/blog-one.jpg" alt="" />
           </a>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
@@ -43,22 +123,7 @@ function Blog() {
             Read More
           </Link>
         </div>
-        {/* Giống bài 18 , lấy api về đưa vào usetate rồi xuất ra blog bằng hàm renderDâta
-
-        *làm thẳng vào file blog  ( lấy api phần nào , làm phần đó : lấy api file nào , làm file đó )
-
-        Link Api : http://localhost/laravel8/laravel8/public/api/blog 
-        nhớ bật Xampp trước , mở apache và sql
-        
-        ở return chính : 
-        <div className="container">
-        {renderData}
-        </div>
-
-
-        làm xong làm tiếp blogList
-        */}
-
+        <div className="single-blog-post">{renderData()} </div>
         <div className="pagination-area">
           <ul className="pagination">
             <li>
