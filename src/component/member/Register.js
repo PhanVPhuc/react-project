@@ -25,7 +25,8 @@ function Register() {
   const [pass, getPass] = useState(" ");
   const [phone, getPhone] = useState("");
   const [address, getAddess] = useState("");
-  const [avatar, getAvatar] = [{}];
+  const [avatar, getAvatar] = useState({});
+  const [file, setFile] = useState([]);
 
   function handleUserInputFile(e) {
     e.preventDefault();
