@@ -30,6 +30,15 @@ function Register() {
   function handleUserInputFile(e) {
     e.preventDefault();
     console.log("Oh No ");
+
+    const file = e.target.file;
+
+    //send file to api sever
+    let reader = new FileReader();
+    reader.onload = (e) => {
+      //set avartar
+      // set file
+    };
   }
 
   function handdleInputs() {}
