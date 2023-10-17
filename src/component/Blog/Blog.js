@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import BlogDetail from "./BDetail";
 
 function Blog() {
   /* Giống bài 18 , lấy api về đưa vào usetate rồi xuất ra blog bằng hàm renderDâta
@@ -63,12 +64,17 @@ function Blog() {
             </div>
             <a href>
               <img src="frontend/images/blog/blog-one.jpg" alt="" />
-              
-             
               {/* <Image image={value.image} han /> */}
             </a>
             <p>{value.content}</p>
-            <Link className="btn btn-primary" to="/blog-single">
+            {/* to={"/blog/detail/"} + {value.id}   // will never run  and to={`/blog/detail/${value.id}`} this will get the id to make it out in url but never get the value.id to compare
+              but 
+               ===> to={"/blog/detail/" + value["id"]} this will run and get the id we need to get to show it on the url and use it ti compare to the id in the blog/detail api
+              */}
+            <Link
+              className="btn btn-primary"
+              to={"/blog/detail/" + value["id"]}
+            >
               Read More
             </Link>
           </div>
@@ -119,7 +125,7 @@ function Blog() {
             reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
             pariatur.
           </p>
-          <Link className="btn btn-primary" to="/blog-single">
+          <Link className="btn btn-primary" to="/blog-single ">
             Read More
           </Link>
         </div>

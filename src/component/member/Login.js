@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Login() {
   return (
     <section id="form">
@@ -18,27 +20,13 @@ function Login() {
                 <button type="submit" className="btn btn-default">
                   Login
                 </button>
-              </form>
-            </div>
-            {/*/login form*/}
-          </div>
-          <div className="col-sm-1">
-            <h2 className="or">OR</h2>
-          </div>
-          <div className="col-sm-4">
-            <div className="signup-form">
-              {/*sign up form*/}
-              <h2>New User Signup!</h2>
-              <form action="#">
-                <input type="text" placeholder="Name" />
-                <input type="email" placeholder="Email Address" />
-                <input type="password" placeholder="Password" />
-                <button type="submit" className="btn btn-default">
-                  Signup
+                <p>Dont have account ? Click the button below</p>
+                <button type="click" className="btn btn-default">
+                  <Link to="/Register"> Register</Link>
                 </button>
               </form>
             </div>
-            {/*/sign up form*/}
+            {/*/login form*/}
           </div>
         </div>
       </div>

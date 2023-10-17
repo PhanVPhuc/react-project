@@ -1,73 +1,84 @@
-function BlogDetail() {
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+
+function BlogDetail(props) {
+  let params = useParams();
+  const [data, setData] = useState([]);
+  // const [comment, setComment] = useState([]);
+  // const [idRely, setIdRely] = useState("");
+  // khai báo các đối tượng cần thiết để truyền dữ liệu về
+  //  ta sẽ sử lí việc truyền api và lấy id để so với blog để đưa về blog detail cần thiết
+
+  useEffect(() => {
+    axios
+      .get(
+        "http://localhost/laravel8/laravel8/public/api/blog/detail/" + params.id
+      )
+      .then((response) => {
+        setData(response.data.data);
+        // setComment(response.data.data.comment);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, []);
+  function renderBlogDetail() {
+    console.log(data);
+    // if (data.length > 0) {
+    if (Object.keys.length > 0) {
+      return (
+        <>
+          <h2 className="title text-center">Latest From our Blog</h2>
+          <div className="single-blog-post">
+            <h3>{data.title}</h3>
+            <div className="post-meta">
+              <ul>
+                <li>
+                  <i className="fa fa-user" /> Mac Doe
+                </li>
+                <li>
+                  <i className="fa fa-clock-o" /> 1:33 pm
+                </li>
+                <li>
+                  <i className="fa fa-calendar" /> DEC 5, 2013
+                </li>
+              </ul>
+              <span>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i>
+              </span>
+            </div>
+            <a href>
+              <img src="frontend/images/blog/blog-one.jpg" alt="" />
+            </a>
+            <p>{data.description}</p> <br />
+            <p>{data.content}</p> <br />
+            <div className="pager-area">
+              <ul className="pager pull-right">
+                <li>
+                  <a href="#">Pre</a>
+                </li>
+                <li>
+                  <a href="#">Next</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </>
+      );
+    }
+  }
+
+  // console.log("data" + data);
+  // console.log("comment" + comment);
   return (
     <div className="col-sm-9">
-      <div className="blog-post-area">
-        <h2 className="title text-center">Latest From our Blog</h2>
-        <div className="single-blog-post">
-          <h3>Girls Pink T Shirt arrived in store</h3>
-          <div className="post-meta">
-            <ul>
-              <li>
-                <i className="fa fa-user" /> Mac Doe
-              </li>
-              <li>
-                <i className="fa fa-clock-o" /> 1:33 pm
-              </li>
-              <li>
-                <i className="fa fa-calendar" /> DEC 5, 2013
-              </li>
-            </ul>
-            {/* <span>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star-half-o"></i>
-								</span> */}
-          </div>
-          <a href>
-            <img src="%PUBLIC_URL%/frontend/images/blog/blog-one.jpg" alt="" />
-          </a>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur.
-          </p>{" "}
-          <br />
-          <p>
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-            officia deserunt mollit anim id est laborum. Sed ut perspiciatis
-            unde omnis iste natus error sit voluptatem accusantium doloremque
-            laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
-            veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-          </p>{" "}
-          <br />
-          <p>
-            Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
-            fugit, sed quia consequuntur magni dolores eos qui ratione
-            voluptatem sequi nesciunt.
-          </p>{" "}
-          <br />
-          <p>
-            Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-            consectetur, adipisci velit, sed quia non numquam eius modi tempora
-            incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
-          </p>
-          <div className="pager-area">
-            <ul className="pager pull-right">
-              <li>
-                <a href="#">Pre</a>
-              </li>
-              <li>
-                <a href="#">Next</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      {/* xử lí ở đây  */}
+      <div className="blog-post-area">{renderBlogDetail()}</div>
       {/*/blog-post-area*/}
       <div className="rating-area">
         <ul className="ratings">
@@ -103,28 +114,55 @@ function BlogDetail() {
       {/*/rating-area*/}
       <div className="socials-share">
         <a href>
-          <img src="%PUBLIC_URL%/frontend/images/blog/socials.png" alt="" />
+          <img src="frontend/images/blog/socials.png" alt="" />
         </a>
       </div>
       {/*/socials-share*/}
-      {/* <div class="media commnets">
-						<a class="pull-left" href="#">
-							<img class="media-object" src="%PUBLIC_URL%/frontend/images/blog/man-one.jpg" alt="">
-						</a>
-						<div class="media-body">
-							<h4 class="media-heading">Annie Davis</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-							<div class="blog-socials">
-								<ul>
-									<li><a href=""><i class="fa fa-facebook"></i></a></li>
-									<li><a href=""><i class="fa fa-twitter"></i></a></li>
-									<li><a href=""><i class="fa fa-dribbble"></i></a></li>
-									<li><a href=""><i class="fa fa-google-plus"></i></a></li>
-								</ul>
-								<a class="btn btn-primary" href="">Other Posts</a>
-							</div>
-						</div>
-					</div> */}
+      <div class="media commnets">
+        <a class="pull-left" href="#">
+          <img
+            class="media-object"
+            src="frontend/images/blog/man-one.jpg"
+            alt=""
+          />
+        </a>
+        <div class="media-body">
+          <h4 class="media-heading">Annie Davis</h4>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
+          </p>
+          <div class="blog-socials">
+            <ul>
+              <li>
+                <a href="">
+                  <i class="fa fa-facebook"></i>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <i class="fa fa-twitter"></i>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <i class="fa fa-dribbble"></i>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <i class="fa fa-google-plus"></i>
+                </a>
+              </li>
+            </ul>
+            <a class="btn btn-primary" href="">
+              Other Posts
+            </a>
+          </div>
+        </div>
+      </div>
       {/*Comments*/}
       <div className="response-area">
         <h2>3 RESPONSES</h2>
@@ -133,7 +171,7 @@ function BlogDetail() {
             <a className="pull-left" href="#">
               <img
                 className="media-object"
-                src="%PUBLIC_URL%/frontend/images/blog/man-two.jpg"
+                src="frontend/images/blog/man-two.jpg"
                 alt=""
               />
             </a>
@@ -166,7 +204,7 @@ function BlogDetail() {
             <a className="pull-left" href="#">
               <img
                 className="media-object"
-                src="%PUBLIC_URL%/frontend/images/blog/man-three.jpg"
+                src="frontend/images/blog/man-three.jpg"
                 alt=""
               />
             </a>
@@ -199,7 +237,7 @@ function BlogDetail() {
             <a className="pull-left" href="#">
               <img
                 className="media-object"
-                src="%PUBLIC_URL%/frontend/images/blog/man-three.jpg"
+                src="frontend/images/blog/man-three.jpg"
                 alt=""
               />
             </a>
@@ -232,7 +270,7 @@ function BlogDetail() {
             <a className="pull-left" href="#">
               <img
                 className="media-object"
-                src="%PUBLIC_URL%/frontend/images/blog/man-three.jpg"
+                src="frontend/images/blog/man-three.jpg"
                 alt=""
               />
             </a>
@@ -265,7 +303,7 @@ function BlogDetail() {
             <a className="pull-left" href="#">
               <img
                 className="media-object"
-                src="%PUBLIC_URL%/frontend/images/blog/man-four.jpg"
+                src="frontend/images/blog/man-four.jpg"
                 alt=""
               />
             </a>
@@ -298,7 +336,7 @@ function BlogDetail() {
             <a className="pull-left" href="#">
               <img
                 className="media-object"
-                src="%PUBLIC_URL%/frontend/images/blog/man-three.jpg"
+                src="frontend/images/blog/man-three.jpg"
                 alt=""
               />
             </a>
@@ -331,7 +369,7 @@ function BlogDetail() {
             <a className="pull-left" href="#">
               <img
                 className="media-object"
-                src="%PUBLIC_URL%/frontend/images/blog/man-three.jpg"
+                src="frontend/images/blog/man-three.jpg"
                 alt=""
               />
             </a>
@@ -364,7 +402,7 @@ function BlogDetail() {
             <a className="pull-left" href="#">
               <img
                 className="media-object"
-                src="%PUBLIC_URL%/frontend/images/blog/man-three.jpg"
+                src="frontend/images/blog/man-three.jpg"
                 alt=""
               />
             </a>
