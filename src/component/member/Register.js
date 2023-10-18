@@ -3,47 +3,41 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Register() {
-  // - Tao form co cac truong như sau: name, email, password, phone, address, avatar, level
-  //   (Va lay nhung value nay gui qua api, chu y phai gui đúng name, neu khong api se bao loi khong tim thay.)
-
-  // Yeu cau:
-  // - kiem tra va in ra loi theo object cac input neu khong nhap
-  // - avatar:
-  //    + kiem tra file upload lên có phải là hình ảnh k?
-  //    + chi cho phep upload dưới 1mb,
-  //    Do avatar upload lên trả về 1 array, nên gửi qua api k dc, vi vậy ta phải mã hoá bằng avatar 1
-  //    chuỗi, dùng FileReader và khi đã má hoá rồi thi k thê dùng cái này để check nó là định dạng hình
-  //    và check size dc, vì vậy ta se tao thêm 1 file luu all thông tin hình ảnh upload lên và dùng file này đê check.
-  //    Như vậy khi upload lên thi mình tạo ra 2 biên:
-  //      + 1 biên để luu hình anh mã hoà và gừi qua api. (đặt tên là avatar)
-  //      + 1 biên luu thông tin hình ảnh để check image va size (dat tên la file) tham khảo code xư lý image bên
-  //      phải (xem them thong tin phia tren cung` ben phai)
-  // - level set truc tiep = 0
-
-  const [name, getName] = useState("");
-  const [email, getEmail] = useState("");
-  const [pass, getPass] = useState(" ");
-  const [phone, getPhone] = useState("");
-  const [address, getAddess] = useState("");
-  const [avatar, getAvatar] = useState({});
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [pass, setPass] = useState(" ");
+  const [phone, setPhone] = useState("");
+  const [address, setAddess] = useState("");
+  const [avatar, setAvatar] = useState({});
   const [file, setFile] = useState([]);
 
+  function isEmail(email) {
+    var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,6})+$/;
+    return regex.test(email);
+  }
   function handleUserInputFile(e) {
     e.preventDefault();
-    console.log("Oh No ");
-
     const file = e.target.file;
 
     //send file to api sever
     let reader = new FileReader();
     reader.onload = (e) => {
       //set avartar
+      setAvatar(e.target.result);
       // set file
+      setFile(file[0]);
     };
+    reader.readAsDataURL(file[0]);
   }
 
-  function handdleInputs() {}
-  function hahandleSubmit(e) {
+  function handdleChanges(e) {
+    setName(e.target.value);
+    setEmail(e.target.value);
+    setPass(e.target.value);
+    setPhone(e.target.value);
+    setAddess(e.target.value);
+  }
+  function handleSubmit(e) {
     e.preventDefault();
 
     const data = {
@@ -64,10 +58,22 @@ function Register() {
           {/*sign up form*/}
           <h2>New User Signup!</h2>
           <form action="#">
-            <input type="text" placeholder="Name" />
-            <input type="email" placeholder="Email Address" />
-            <input type="password" placeholder="Password" />
-            <button type="submit" className="btn btn-default">
+            <input type="text" placeholder="Name" name="name" />
+            <input
+              type="email"
+              placeholder="Email Address"
+              name="email"
+              onChange={isEmail}
+            />
+            <input type="password" placeholder="Password" name="password" />
+            <input type="phone" placeholder="phone" name="phone" />
+            <input type="address" placeholder="address" name="address" />
+            <input type="file" onChange={handleUserInputFile} />
+            <button
+              type="submit"
+              className="btn btn-default"
+              onClick={handleSubmit}
+            >
               Signup
             </button>
             <p> Already have account ? </p>
