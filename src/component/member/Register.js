@@ -17,6 +17,7 @@ function Register() {
     password: "",
     phone: "",
     address: "",
+    level: 0,
   });
   const handleInput = (e) => {
     const nameInput = e.target.name;
@@ -144,14 +145,15 @@ function Register() {
               onChange={handleInput}
             />
             <input type="file" onChange={handleUserInputFile} />
+            {/* <input type="hidden" value={"0"} name="level"></input> */}
             <button type="submit" className="btn btn-default">
               Signup
             </button>
-            <p> Already have account ? </p>
-            <button type="click" className="btn btn-default">
-              <Link to="/login"> Login </Link>
-            </button>
           </form>
+          <p> Already have account ? </p>
+          <button type="click" className="btn btn-default">
+            <Link to="/login"> Login </Link>
+          </button>
         </div>
         {/*/sign up form*/}
       </div>
