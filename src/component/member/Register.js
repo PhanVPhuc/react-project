@@ -1,79 +1,150 @@
 import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Error from "./Error";
 
 function Register() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [pass, setPass] = useState(" ");
-  const [phone, setPhone] = useState("");
-  const [address, setAddess] = useState("");
-  const [avatar, setAvatar] = useState({});
-  const [file, setFile] = useState([]);
+  // làm giống bài 32 vì các trường giống nhau ở phần usestate NÊN
 
   function isEmail(email) {
     var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,6})+$/;
     return regex.test(email);
   }
+
+  const [inputs, setInputs] = useState({
+    name: "",
+    email: "",
+    password: "",
+    phone: "",
+    address: "",
+  });
+  const handleInput = (e) => {
+    const nameInput = e.target.name;
+    const valueInput = e.target.value;
+    setInputs((state) => ({
+      ...state,
+      [nameInput]: valueInput,
+    }));
+  };
+  const [error, setError] = useState({});
+  const [avatar, setAvatar] = useState({});
+  const [getFile, setFile] = useState("");
   function handleUserInputFile(e) {
     e.preventDefault();
-    const file = e.target.file;
+    const file = e.target.files;
+    //e.target.files will always works BUT FILE ISNT
 
     //send file to api sever
     let reader = new FileReader();
     reader.onload = (e) => {
       //set avartar
       setAvatar(e.target.result);
-      // set file
-      setFile(file[0]);
+      // set file for handle it in handleSubmit
+      setFile(file);
     };
     reader.readAsDataURL(file[0]);
   }
 
-  function handdleChanges(e) {
-    setName(e.target.value);
-    setEmail(e.target.value);
-    setPass(e.target.value);
-    setPhone(e.target.value);
-    setAddess(e.target.value);
-  }
   function handleSubmit(e) {
     e.preventDefault();
+    let errorSubmit = {};
+    let flag = true;
+    let maxSize = 1024 * 1024;
 
-    const data = {
-      name: name,
-      email: email,
-      pass: pass,
-      phone: phone,
-      address: address,
-    };
-    axios.post("http://localhost/public/api/login", data).then((res) => {
-      console.log(res);
-    });
+    if (inputs.name == "") {
+      errorSubmit.name = " Vui long nhap ten cua ban";
+      flag = false;
+    }
+    if (inputs.email == "") {
+      errorSubmit.email = "vui long nhap email";
+      flag = false;
+    }
+    if (inputs.password == "") {
+      errorSubmit.password = "Vui long nhap password";
+      flag = false;
+    }
+    if (inputs.phone == "") {
+      errorSubmit.phone = "Vui long nhap so dien thoai";
+      flag = false;
+    }
+    if (inputs.address == "") {
+      errorSubmit.address = "Vui long nhap dia chi nha ";
+      flag = false;
+    }
+    if (getFile == "") {
+      alert("Vui long upload anh ? ");
+    } else {
+      console.log(getFile);
+
+      let setSize = getFile[0].size;
+      let setName = getFile[0].name;
+
+      if (setSize > maxSize) {
+        alert("File phai nho hon 1mb");
+        flag = false;
+      }
+
+      // Kiểm tra định dạng file
+      let validExtensions = ["png", "jpg", "jpeg"];
+      let fileExtension = setName.split(".").pop().toLowerCase();
+      if (!validExtensions.includes(fileExtension)) {
+        alert("File ảnh không hợp lệ!");
+        flag = false;
+      }
+    }
+
+    if (!flag) {
+      setError(errorSubmit);
+    } else {
+      setError({});
+      console.log(inputs);
+      axios
+        .post("http://localhost/laravel8/laravel8/public/api/register", inputs)
+        .then((res) => {
+          console.log(res); // checking the inputed information has saved to api
+        });
+    }
   }
   return (
     <>
       <div className="col-sm-4">
+        <Error error={error} />
         <div className="signup-form">
           {/*sign up form*/}
           <h2>New User Signup!</h2>
-          <form action="#">
-            <input type="text" placeholder="Name" name="name" />
+          <form enctype="multipart/form-data" onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="Name"
+              name="name"
+              onChange={handleInput}
+            />
             <input
               type="email"
               placeholder="Email Address"
               name="email"
-              onChange={isEmail}
+              onChange={(isEmail, handleInput)}
             />
-            <input type="password" placeholder="Password" name="password" />
-            <input type="phone" placeholder="phone" name="phone" />
-            <input type="address" placeholder="address" name="address" />
+            <input
+              type="password"
+              placeholder="Password"
+              name="password"
+              onChange={handleInput}
+            />
+            <input
+              type="phone"
+              placeholder="phone"
+              name="phone"
+              onChange={handleInput}
+            />
+            <input
+              type="address"
+              placeholder="address"
+              name="address"
+              onChange={handleInput}
+            />
             <input type="file" onChange={handleUserInputFile} />
-            <button
-              type="submit"
-              className="btn btn-default"
-              onClick={handleSubmit}
-            >
+            <button type="submit" className="btn btn-default">
               Signup
             </button>
             <p> Already have account ? </p>
