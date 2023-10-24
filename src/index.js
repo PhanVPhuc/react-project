@@ -15,6 +15,7 @@ import ProductDetail from "./component/Productfetail";
 import BlogDetail from "./component/Blog/BDetail";
 import Blog from "./component/Blog/Blog";
 import Register from "./component/member/Register";
+import Maincontent from "./component/MainContent";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -22,7 +23,7 @@ root.render(
     <Router>
       <App>
         <Routes>
-          <Route exact path="/" element={<Content />} />
+          <Route exact path="/" element={<Maincontent />} />
           <Route path="/check-out" element={<Checkout />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/login" element={<Login />} />

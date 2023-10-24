@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, json, useNavigate } from "react-router-dom";
 import Error from "./Error";
 import axios from "axios";
 
@@ -8,13 +8,15 @@ function Login() {
     var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,6})+$/;
     return regex.test(email);
   }
+  const navigate = useNavigate();
   const [inputs, setInputs] = useState({
     // name: "",
     email: "",
-    pass: "",
+    password: "",
     level: 0,
   });
   const [error, setError] = useState({});
+  // catch error
   const handleInput = (e) => {
     const nameInput = e.target.name;
     const valueInput = e.target.value;
@@ -26,30 +28,47 @@ function Login() {
     let errorSubmit = {};
     let flag = true;
 
-    if (inputs.email == "") {
-      // errorSubmit.email = " We need your email ";
-      flag = false;
-    }
-    // if (inputs.name == "") {
-    //   // errorSubmit.pass = " We need your name";
-    //   flag = false;
-    // }
-    if (inputs.pass == "") {
-      //   errorSubmit.pass = " We need your Password";
-      flag = false;
-    }
+    if (inputs.email === "") {
+      errorSubmit.email = " We need your email ";
 
+      flag = false;
+    }
+    if (inputs.password === "") {
+      errorSubmit.password = " We need your Password";
+      flag = false;
+    }
     if (!flag) {
       setError(errorSubmit);
+    } else {
+      setError({});
     }
-    setError({});
+    if (flag) {
+      const data = {
+        email: inputs.email,
+        password: inputs.password,
+        level: 0,
+      };
+      axios
+        .post("http://localhost/laravel8/laravel8/public/api/login", inputs)
+        .then((res) => {
+          // console.log(res); // checking the inputed information is saved to api
+          if (res.data.error) {
+            setError(res.data.error);
+          } else {
+            alert("login success");
+            // console.log(res);
+
+            const Islogin = true;
+            // console.log(res.data.token); // check auth key and token key
+            localStorage.setItem("Auth ", JSON.stringify(res.data.Auth)); // send Authen from api to local storage
+            localStorage.setItem("Token ", JSON.stringify(res.data.token)); // send token from api to local storage
+            localStorage.setItem("Flag", JSON.stringify(Islogin));
+            navigate("/");
+          }
+        });
+    }
 
     console.log(inputs);
-    axios
-      .post("http://localhost/laravel8/laravel8/public/api/login", inputs)
-      .then((res) => {
-        console.log(res); // checking the inputed information has saved to api
-      });
   }
   return (
     <section id="form">
@@ -60,6 +79,7 @@ function Login() {
             <div className="login-form">
               {/*login form*/}
               <h2>Login to your account</h2>
+              <Error error={error} />
               <form enctype="multipart/form-data" onSubmit={handleSubmit}>
                 {/* <input
                   type="text"
@@ -76,10 +96,10 @@ function Login() {
                 <input
                   type="password"
                   placeholder="Password"
-                  name="pass"
+                  name="password"
                   onChange={handleInput}
                 />
-                {/* <Error error={error} /> */}
+
                 <span>
                   <input type="checkbox" className="checkbox" />
                   Keep me signed in

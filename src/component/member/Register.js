@@ -17,6 +17,8 @@ function Register() {
     password: "",
     phone: "",
     address: "",
+    // avatar: "",
+    // error 500 on run
     level: 0,
   });
   const handleInput = (e) => {
@@ -98,11 +100,17 @@ function Register() {
       setError(errorSubmit);
     } else {
       setError({});
+      // inputs["avatar"] = avatar;
       console.log(inputs);
       axios
         .post("http://localhost/laravel8/laravel8/public/api/register", inputs)
         .then((res) => {
           console.log(res); // checking the inputed information has saved to api
+          if (res.data.error) {
+            setError(res.data.error);
+          } else {
+            alert("U GOOD TO GO ");
+          }
         });
     }
   }
