@@ -1,15 +1,19 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function BlogDetail(props) {
   let params = useParams();
   const [data, setData] = useState([]);
-  // const [comment, setComment] = useState([]);
-  // const [idRely, setIdRely] = useState("");
-  // khai báo các đối tượng cần thiết để truyền dữ liệu về
-  //  ta sẽ sử lí việc truyền api và lấy id để so với blog để đưa về blog detail cần thiết
-
+  const navigate = useNavigate();
+  const [inputs, setInputs] = useState({
+    message: "",
+  });
+  function handleInput(e) {
+    const nameInput = e.target.name;
+    const valueInput = e.target.value;
+    setInputs((state) => ({ ...state, [nameInput]: valueInput }));
+  }
   useEffect(() => {
     axios
       .get(
@@ -23,6 +27,28 @@ function BlogDetail(props) {
         console.log(error);
       });
   }, []);
+  // const [idRely, setIdRely] = useState("");
+  // khai báo các đối tượng cần thiết để truyền dữ liệu về
+  //  ta sẽ sử lí việc truyền api và lấy id để so với blog để đưa về blog detail cần thiết
+
+  function handleComment() {
+    const flag = JSON.parse(localStorage.getItem("Flag"));
+    if (flag) {
+      // xử lí comment tại đây
+      // alert("Good to go");
+      if (inputs.message === "") {
+        alert(" You forgot to comment");
+      } else {
+        // xử lí comments tại đây
+        // alert("okebae");
+        
+      }
+    } else {
+      alert("You need to login to post comment");
+      navigate("/login");
+    }
+  }
+
   function renderBlogDetail() {
     console.log(data);
     // if (data.length > 0) {
@@ -167,7 +193,7 @@ function BlogDetail(props) {
       <div className="response-area">
         <h2>3 RESPONSES</h2>
         <ul className="media-list">
-          <li className="media">
+          {/* <li className="media">
             <a className="pull-left" href="#">
               <img
                 className="media-object"
@@ -430,11 +456,15 @@ function BlogDetail(props) {
                 Replay
               </a>
             </div>
-          </li>
+          </li> */}
         </ul>
       </div>
       {/*/Response-area*/}
-      <div className="replay-box">
+      <form
+        className="replay-box"
+        enctype="multipart/form-data"
+        onSubmit={handleComment}
+      >
         <div className="row">
           <div className="col-sm-12">
             <h2>Leave a replay</h2>
@@ -443,14 +473,19 @@ function BlogDetail(props) {
                 <label>Your Name</label>
               </div>
               <span>*</span>
-              <textarea name="message" rows={11} defaultValue={""} />
-              <a className="btn btn-primary" href>
+              <textarea
+                name="message"
+                rows={11}
+                defaultValue={""}
+                onChange={handleInput}
+              />
+              <button className="btn btn-primary" href>
                 post comment
-              </a>
+              </button>
             </div>
           </div>
         </div>
-      </div>
+      </form>
       {/*/Repaly Box*/}
     </div>
   );

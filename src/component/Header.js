@@ -1,34 +1,40 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Header() {
   const auth = JSON.parse(localStorage.getItem("Auth"));
   const token = JSON.parse(localStorage.getItem("Token"));
   const flag = JSON.parse(localStorage.getItem("Flag"));
+  const navigate = useNavigate();
   function handleLogout() {
     // console.log(auth);
     // console.log(token);
     // console.log(flag);
+
     if (flag) {
       return (
-        <Link to="/login" onClick={logout}>
+        <a onClick={logout} id="cart">
           <i className="fa fa-lock" /> Logout
-        </Link>
+        </a>
       );
     } else {
       return (
-        <Link to="/login">
-          <i className="fa fa-lock" /> Log in
+        <Link to="/login" id="cart">
+          <i className="fa fa-lock" /> Login
         </Link>
       );
     }
   }
+
   function logout() {
     //remove local
+
     localStorage.removeItem("Auth");
     localStorage.removeItem("Token");
     localStorage.removeItem("Flag");
+    navigate("/login");
   }
+
   return (
     <header id="header">
       {/*header*/}
@@ -174,6 +180,8 @@ function Header() {
                     {/* 
                     
                     
+
+
                     
                     help me 
                     */}

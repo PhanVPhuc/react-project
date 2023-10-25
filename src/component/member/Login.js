@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, Navigate, json, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Error from "./Error";
 import axios from "axios";
 
@@ -60,8 +60,8 @@ function Login() {
 
             const Islogin = true;
             // console.log(res.data.token); // check auth key and token key
-            localStorage.setItem("Auth ", JSON.stringify(res.data.Auth)); // send Authen from api to local storage
-            localStorage.setItem("Token ", JSON.stringify(res.data.token)); // send token from api to local storage
+            localStorage.setItem("Auth", JSON.stringify(res.data.Auth)); // send Authen from api to local storage
+            localStorage.setItem("Token", JSON.stringify(res.data.token)); // send token from api to local storage
             localStorage.setItem("Flag", JSON.stringify(Islogin));
             navigate("/");
           }
