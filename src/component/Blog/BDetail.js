@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 function BlogDetail(props) {
   let params = useParams();
+  const { id } = useParams();
   const [data, setData] = useState([]);
   const navigate = useNavigate();
   const [inputs, setInputs] = useState({
@@ -55,7 +56,7 @@ function BlogDetail(props) {
         // xử lí comments tại đây
         // alert("okebae");
         const formData = new FormData();
-        formData.append("id_blog", props.idBlog);
+        formData.append("id_blog", id);
         formData.append("id_user", userData.id);
         formData.append("id_comment", 0);
         formData.append("comment", inputs.message);
@@ -64,7 +65,9 @@ function BlogDetail(props) {
 
         axios
           .post(
-            "http://localhost/laravel8/laravel8/public/api/blog/comment/id",
+            "http://localhost/laravel8/laravel8/public/api/blog/comment/" + id,
+            //"http://localhost/laravel8/laravel8/public/api/blog/comment/" + id post url which include id we get on the url
+            // USE THE + TO GET NOT THE , ( I DISSAPOINTED MY OWN KNOWLEGDE)
             formData,
             config
           )

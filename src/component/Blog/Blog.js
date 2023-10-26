@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import BlogDetail from "./BDetail";
 
-function Blog() {
+function Blog(props) {
   /* Giống bài 18 , lấy api về đưa vào usetate rồi xuất ra blog bằng hàm renderDâta
 
         *làm thẳng vào file blog  ( lấy api phần nào , làm phần đó : lấy api file nào , làm file đó )
@@ -19,6 +19,7 @@ function Blog() {
 
         làm xong làm tiếp blogList
         */
+
   const [data, setData] = useState([]);
   useEffect(() => {
     axios
