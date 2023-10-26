@@ -100,7 +100,7 @@ function Register() {
       setError(errorSubmit);
     } else {
       setError({});
-      // inputs["avatar"] = avatar;
+      inputs["avatar"] = avatar;
       console.log(inputs);
       axios
         .post("http://localhost/laravel8/laravel8/public/api/register", inputs)

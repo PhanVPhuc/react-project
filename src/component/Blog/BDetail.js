@@ -31,17 +31,76 @@ function BlogDetail(props) {
   // khai báo các đối tượng cần thiết để truyền dữ liệu về
   //  ta sẽ sử lí việc truyền api và lấy id để so với blog để đưa về blog detail cần thiết
 
-  function handleComment() {
+  function handleComment(e) {
+    e.preventDefault();
     const flag = JSON.parse(localStorage.getItem("Flag"));
+    const accessToken = JSON.parse(localStorage.getItem("Token"));
+    const userData = JSON.parse(localStorage.getItem("Auth"));
     if (flag) {
       // xử lí comment tại đây
       // alert("Good to go");
+
+      // prettier-ignore
+      let config = { 
+                headers: { 
+                'Authorization': 'Bearer '+ accessToken,
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Accept': 'application/json'
+                } 
+            };
+
       if (inputs.message === "") {
         alert(" You forgot to comment");
       } else {
         // xử lí comments tại đây
         // alert("okebae");
-        
+        const formData = new FormData();
+        formData.append("id_blog", props.idBlog);
+        formData.append("id_user", userData.id);
+        formData.append("id_comment", 0);
+        formData.append("comment", inputs.message);
+        formData.append("image_user", userData.avatar);
+        formData.append("name_user", userData.name);
+
+        axios
+          .post(
+            "http://localhost/laravel8/laravel8/public/api/blog/comment/id",
+            formData,
+            config
+          )
+          .then((res) => {
+            console.log(res);
+          });
+
+        // return (
+        //   <li className="media">
+        //     <a className="pull-left" href="#">
+        //       <img
+        //         className="media-object"
+        //         src="frontend/images/blog/man-two.jpg"
+        //         alt=""
+        //       />
+        //     </a>
+        //     <div className="media-body">
+        //       <ul className="sinlge-post-meta">
+        //         <li>
+        //           <i className="fa fa-user" />
+        //           Janis Gallagher
+        //         </li>
+        //         <li>
+        //           <i className="fa fa-clock-o" /> 1:33 pm
+        //         </li>
+        //         <li>
+        //           <i className="fa fa-calendar" /> DEC 5, 2013
+        //         </li>
+        //       </ul>
+        //       <a className="btn btn-primary" href>
+        //         <i className="fa fa-reply" />
+        //         Replay
+        //       </a>
+        //     </div>
+        //   </li>
+        // );
       }
     } else {
       alert("You need to login to post comment");
@@ -50,7 +109,7 @@ function BlogDetail(props) {
   }
 
   function renderBlogDetail() {
-    console.log(data);
+    // console.log(data);
     // if (data.length > 0) {
     if (Object.keys.length > 0) {
       return (
