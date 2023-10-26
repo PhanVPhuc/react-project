@@ -1,15 +1,16 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import Listcomment from "./Listcomment";
 
 function BlogDetail(props) {
   let params = useParams();
-  const { id } = useParams();
   const [data, setData] = useState([]);
   const navigate = useNavigate();
   const [inputs, setInputs] = useState({
     message: "",
   });
+  const [comment, setcomment] = useState("");
   function handleInput(e) {
     const nameInput = e.target.name;
     const valueInput = e.target.value;
@@ -56,7 +57,7 @@ function BlogDetail(props) {
         // xử lí comments tại đây
         // alert("okebae");
         const formData = new FormData();
-        formData.append("id_blog", id);
+        formData.append("id_blog", params.id);
         formData.append("id_user", userData.id);
         formData.append("id_comment", 0);
         formData.append("comment", inputs.message);
@@ -65,45 +66,18 @@ function BlogDetail(props) {
 
         axios
           .post(
-            "http://localhost/laravel8/laravel8/public/api/blog/comment/" + id,
+            "http://localhost/laravel8/laravel8/public/api/blog/comment/" +
+              params.id,
             //"http://localhost/laravel8/laravel8/public/api/blog/comment/" + id post url which include id we get on the url
             // USE THE + TO GET NOT THE , ( I DISSAPOINTED MY OWN KNOWLEGDE)
             formData,
             config
           )
           .then((res) => {
+            // console.log(res.data.data.comment);
             console.log(res);
+            setcomment(res.data.data);
           });
-
-        // return (
-        //   <li className="media">
-        //     <a className="pull-left" href="#">
-        //       <img
-        //         className="media-object"
-        //         src="frontend/images/blog/man-two.jpg"
-        //         alt=""
-        //       />
-        //     </a>
-        //     <div className="media-body">
-        //       <ul className="sinlge-post-meta">
-        //         <li>
-        //           <i className="fa fa-user" />
-        //           Janis Gallagher
-        //         </li>
-        //         <li>
-        //           <i className="fa fa-clock-o" /> 1:33 pm
-        //         </li>
-        //         <li>
-        //           <i className="fa fa-calendar" /> DEC 5, 2013
-        //         </li>
-        //       </ul>
-        //       <a className="btn btn-primary" href>
-        //         <i className="fa fa-reply" />
-        //         Replay
-        //       </a>
-        //     </div>
-        //   </li>
-        // );
       }
     } else {
       alert("You need to login to post comment");
@@ -255,39 +229,11 @@ function BlogDetail(props) {
       <div className="response-area">
         <h2>3 RESPONSES</h2>
         <ul className="media-list">
-          {/* <li className="media">
-            <a className="pull-left" href="#">
-              <img
-                className="media-object"
-                src="frontend/images/blog/man-two.jpg"
-                alt=""
-              />
-            </a>
-            <div className="media-body">
-              <ul className="sinlge-post-meta">
-                <li>
-                  <i className="fa fa-user" />
-                  Janis Gallagher
-                </li>
-                <li>
-                  <i className="fa fa-clock-o" /> 1:33 pm
-                </li>
-                <li>
-                  <i className="fa fa-calendar" /> DEC 5, 2013
-                </li>
-              </ul>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
-              </p>
-              <a className="btn btn-primary" href>
-                <i className="fa fa-reply" />
-                Replay
-              </a>
-            </div>
-          </li>
+          <Listcomment data={comment} />
+          {/* 
+
+
+          
           <li className="media second-media">
             <a className="pull-left" href="#">
               <img
