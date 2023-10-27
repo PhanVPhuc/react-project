@@ -6,9 +6,13 @@ function Listcomment(props) {
     return (
       <li className="media">
         <a className="pull-left" href="#">
+          {/* <img className="media-object" src={commentData.image_user} alt="" />
+           */}
+
           <img
+            // src="../../../public/frontend/images/blog/blog-two.jpg"
+            src={commentData.image_user}
             className="media-object"
-            src="frontend/images/blog/man-two.jpg"
             alt=""
           />
         </a>

@@ -115,7 +115,9 @@ function BlogDetail(props) {
               </span>
             </div>
             <a href>
-              <img src="frontend/images/blog/blog-one.jpg" alt="" />
+              {/* <img src={image} alt="" /> */}
+              img link
+              {/* how to import images ? */}
             </a>
             <p>{data.description}</p> <br />
             <p>{data.content}</p> <br />
@@ -230,6 +232,74 @@ function BlogDetail(props) {
         <h2>3 RESPONSES</h2>
         <ul className="media-list">
           <Listcomment data={comment} />
+
+          <li className="media">
+            <a className="pull-left" href="#">
+              <img
+                className="media-object"
+                src="frontend/images/blog/man-four.jpg"
+                alt=""
+              />
+            </a>
+            <div className="media-body">
+              <ul className="sinlge-post-meta">
+                <li>
+                  <i className="fa fa-user" />
+                  Janis Gallagher
+                </li>
+                <li>
+                  <i className="fa fa-clock-o" /> 1:33 pm
+                </li>
+                <li>
+                  <i className="fa fa-calendar" /> DEC 5, 2013
+                </li>
+              </ul>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+              </p>
+              <a className="btn btn-primary" href>
+                <i className="fa fa-reply" />
+                Replay
+              </a>
+            </div>
+          </li>
+          <li className="media second-media">
+            <a className="pull-left" href="#">
+              <img
+                className="media-object"
+                src="public/frontend/images/blog/man-three.jpg"
+                alt=""
+              />
+            </a>
+            <div className="media-body">
+              <ul className="sinlge-post-meta">
+                <li>
+                  <i className="fa fa-user" />
+                  Janis Gallagher
+                </li>
+                <li>
+                  <i className="fa fa-clock-o" /> 1:33 pm
+                </li>
+                <li>
+                  <i className="fa fa-calendar" /> DEC 5, 2013
+                </li>
+              </ul>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+              </p>
+              <a className="btn btn-primary" href>
+                <i className="fa fa-reply" />
+                Replay
+              </a>
+            </div>
+          </li>
+
           {/* 
 
 
