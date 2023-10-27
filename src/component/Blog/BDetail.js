@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import image from "./blog/blog-two.jpg";
 import Listcomment from "./Listcomment";
 
 function BlogDetail(props) {
@@ -116,8 +117,9 @@ function BlogDetail(props) {
             </div>
             <a href>
               {/* <img src={image} alt="" /> */}
-              img link
-              {/* how to import images ? */}
+              <img alt=" wut  ? " src={image} />
+
+              {/* cồng kềnh vl  */}
             </a>
             <p>{data.description}</p> <br />
             <p>{data.content}</p> <br />
