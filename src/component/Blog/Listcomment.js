@@ -1,17 +1,17 @@
 function Listcomment(props) {
-  //   console.log(props.data);
+  // console.log(props.data);
   const commentData = props.data;
-  console.log(commentData);
+  // console.log(commentData);
   if (Object.keys.length > 0) {
+    const image =
+      "http://localhost/laravel8/laravel8/public/upload/user/avatar/" +
+      commentData.image_user;
     return (
       <li className="media">
         <a className="pull-left" href="#">
-          {/* <img className="media-object" src={commentData.image_user} alt="" />
-           */}
-
           <img
-            // src="../../../public/frontend/images/blog/blog-two.jpg"
-            src={commentData.image_user}
+            // src="../../../public/frontend/images/blog/blog-two.jpg" // path gốc
+            src={image} // path user backend
             className="media-object"
             alt=""
           />
@@ -30,10 +30,10 @@ function Listcomment(props) {
             </li>
           </ul>
           <p> {commentData.comment} </p>
-          <a className="btn btn-primary" href>
+          <button type="submit" className="btn btn-primary" href>
             <i className="fa fa-reply" />
             Replay
-          </a>
+          </button>
         </div>
       </li>
     );

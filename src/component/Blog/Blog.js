@@ -34,11 +34,17 @@ function Blog(props) {
     // console.log(data);
     if (Object.keys(data).length > 0) {
       //run obj map
+
       const blogData = data.blog; // move to 1 obj layer
       // console.log(blogData.data); // check
       const dataArray = blogData.data; // move to data which contain what we need to display
       console.log(dataArray); // check
+
       return dataArray.map((value, key) => {
+        const image =
+          "http://localhost/laravel8/laravel8/public/upload/Blog/image/" +
+          dataArray[key].image;
+        console.log(image);
         // run array map
         return (
           <div key={key}>
@@ -64,8 +70,8 @@ function Blog(props) {
               </span>
             </div>
             <a href>
-              <img src="frontend/images/blog/blog-one.jpg" alt="" />
-              {/* <Image image={value.image} han /> */}
+              {/* <img src="http://localhost/public/upload/Blog/image/" alt="" /> */}
+              <img alt="" src={image} />
             </a>
             <p>{value.content}</p>
             {/* to={"/blog/detail/"} + {value.id}   // will never run  and to={`/blog/detail/${value.id}`} this will get the id to make it out in url but never get the value.id to compare

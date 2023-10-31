@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import image from "./blog/blog-two.jpg";
 import Listcomment from "./Listcomment";
+import Blograting from "./Blograting";
 
 function BlogDetail(props) {
   let params = useParams();
@@ -37,12 +38,11 @@ function BlogDetail(props) {
   function handleComment(e) {
     e.preventDefault();
     const flag = JSON.parse(localStorage.getItem("Flag"));
-    const accessToken = JSON.parse(localStorage.getItem("Token"));
-    const userData = JSON.parse(localStorage.getItem("Auth"));
+    const userData = JSON.parse(localStorage.getItem("Userdata"));
     if (flag) {
       // xử lí comment tại đây
       // alert("Good to go");
-
+      let accessToken = userData.data.token;
       // prettier-ignore
       let config = { 
                 headers: { 
@@ -59,11 +59,11 @@ function BlogDetail(props) {
         // alert("okebae");
         const formData = new FormData();
         formData.append("id_blog", params.id);
-        formData.append("id_user", userData.id);
+        formData.append("id_user", userData.data.Auth.id);
         formData.append("id_comment", 0);
         formData.append("comment", inputs.message);
-        formData.append("image_user", userData.avatar);
-        formData.append("name_user", userData.name);
+        formData.append("image_user", userData.data.Auth.avatar);
+        formData.append("name_user", userData.data.Auth.name);
 
         axios
           .post(
@@ -90,6 +90,10 @@ function BlogDetail(props) {
     // console.log(data);
     // if (data.length > 0) {
     if (Object.keys.length > 0) {
+      const image =
+        "http://localhost/laravel8/laravel8/public/upload/Blog/image/" +
+        data.image;
+      // console.log(image);
       return (
         <>
           <h2 className="title text-center">Latest From our Blog</h2>
@@ -147,17 +151,7 @@ function BlogDetail(props) {
       <div className="blog-post-area">{renderBlogDetail()}</div>
       {/*/blog-post-area*/}
       <div className="rating-area">
-        <ul className="ratings">
-          <li className="rate-this">Rate this item:</li>
-          <li>
-            <i className="fa fa-star color" />
-            <i className="fa fa-star color" />
-            <i className="fa fa-star color" />
-            <i className="fa fa-star" />
-            <i className="fa fa-star" />
-          </li>
-          <li className="color">(6 votes)</li>
-        </ul>
+        <Blograting data={comment} />
         <ul className="tag">
           <li>TAG:</li>
           <li>
@@ -231,76 +225,9 @@ function BlogDetail(props) {
       </div>
       {/*Comments*/}
       <div className="response-area">
-        <h2>3 RESPONSES</h2>
+        <h2> RESPONSES</h2>
         <ul className="media-list">
           <Listcomment data={comment} />
-
-          <li className="media">
-            <a className="pull-left" href="#">
-              <img
-                className="media-object"
-                src="frontend/images/blog/man-four.jpg"
-                alt=""
-              />
-            </a>
-            <div className="media-body">
-              <ul className="sinlge-post-meta">
-                <li>
-                  <i className="fa fa-user" />
-                  Janis Gallagher
-                </li>
-                <li>
-                  <i className="fa fa-clock-o" /> 1:33 pm
-                </li>
-                <li>
-                  <i className="fa fa-calendar" /> DEC 5, 2013
-                </li>
-              </ul>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
-              </p>
-              <a className="btn btn-primary" href>
-                <i className="fa fa-reply" />
-                Replay
-              </a>
-            </div>
-          </li>
-          <li className="media second-media">
-            <a className="pull-left" href="#">
-              <img
-                className="media-object"
-                src="public/frontend/images/blog/man-three.jpg"
-                alt=""
-              />
-            </a>
-            <div className="media-body">
-              <ul className="sinlge-post-meta">
-                <li>
-                  <i className="fa fa-user" />
-                  Janis Gallagher
-                </li>
-                <li>
-                  <i className="fa fa-clock-o" /> 1:33 pm
-                </li>
-                <li>
-                  <i className="fa fa-calendar" /> DEC 5, 2013
-                </li>
-              </ul>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
-              </p>
-              <a className="btn btn-primary" href>
-                <i className="fa fa-reply" />
-                Replay
-              </a>
-            </div>
-          </li>
 
           {/* 
 

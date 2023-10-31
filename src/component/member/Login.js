@@ -60,8 +60,9 @@ function Login() {
 
             const Islogin = true;
             // console.log(res.data.token); // check auth key and token key
-            localStorage.setItem("Auth", JSON.stringify(res.data.Auth)); // send Authen from api to local storage
-            localStorage.setItem("Token", JSON.stringify(res.data.token)); // send token from api to local storage
+            // localStorage.setItem("Auth", JSON.stringify(res.data.Auth)); // send Authen from api to local storage
+            // localStorage.setItem("Token", JSON.stringify(res.data.token)); // send token from api to local storage
+            localStorage.setItem("Userdata", JSON.stringify(res));
             localStorage.setItem("Flag", JSON.stringify(Islogin));
             navigate("/");
           }
