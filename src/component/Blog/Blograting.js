@@ -7,6 +7,8 @@ function Blograting(props) {
   const navigate = useNavigate();
   const flag = JSON.parse(localStorage.getItem("Flag"));
   const userData = JSON.parse(localStorage.getItem("Userdata"));
+  // 1 vấn đề khi ta đưa Userdata thì khi ta tách lẻ ra thì kiểu chi cũng lỗi token ( code 401 )
+  //
   const [rating, setRating] = useState(0);
   const params = useParams();
 
@@ -21,8 +23,10 @@ function Blograting(props) {
         // handle logic
         // trung bình + = a+b+c+..+n / tổng số lượng rate hiện có .
 
-        // ta có sum =0 thì sau đó phải đưa điều kiện chạy mảng Object.keys(response.data.data).length > 0
-        // tiếp đến chạy hàm map cho object như dưới khai báo key,index để đưa phép tính sum = sum + số điểm rate và nó sẽ chạy = hàm map ( tương tự hàm for)
+        // ta khai báo sum = 0 , sau đó chạy hàm if với điều kiện mảng ở mảng cần chạy : Object.keys(response.data.data).length > 0
+        // tiếp đến chạy hàm map cho object : Object.keys(response.data.data).map((key, index) => {});
+        // sau đó đưa phép tính sum = sum + số điểm rate  response.data.data[key]["rate"] ["rate"] là chỉ tới key rate đó ko phải index mô
+        // và nó sẽ chạy = hàm map ( tương tự hàm for)
         // xong xuôi thì ghé xuống dưới tính tbc = sum / số lượng rate (Object.keys(response.data.data).length)
         // gán setRating(sum) để setRating đưa giá trị lên và đưa vào rating để xuất ra màn hình
 
@@ -62,19 +66,17 @@ function Blograting(props) {
     formData.append("blog_id", params.id);
     formData.append("rate", newRating);
 
+    // có thể tuỳ biến khai báo url
+    const url =
+      "http://localhost/laravel8/laravel8/public/api/blog/rate/" + params.id;
+
     //  handle api
     // post api để xử lí
     // phải post cả url , formData , config
-    axios
-      .post(
-        "http://localhost/laravel8/laravel8/public/api/blog/rate/" + params.id,
-        formData,
-        config
-      )
-      .then((res) => {
-        console.log(res);
-        // setRating(res.data);
-      });
+    axios.post(url, formData, config).then((res) => {
+      console.log(res);
+      // setRating(res.data);
+    });
     if (flag) {
       console.log("GUD");
       console.log(rating);

@@ -4,20 +4,12 @@ import { useNavigate, useParams } from "react-router-dom";
 import image from "./blog/blog-two.jpg";
 import Listcomment from "./Listcomment";
 import Blograting from "./Blograting";
+import Comment from "./Comment";
 
 function BlogDetail(props) {
   let params = useParams();
   const [data, setData] = useState([]);
-  const navigate = useNavigate();
-  const [inputs, setInputs] = useState({
-    message: "",
-  });
-  const [comment, setcomment] = useState("");
-  function handleInput(e) {
-    const nameInput = e.target.name;
-    const valueInput = e.target.value;
-    setInputs((state) => ({ ...state, [nameInput]: valueInput }));
-  }
+
   useEffect(() => {
     axios
       .get(
@@ -34,57 +26,6 @@ function BlogDetail(props) {
   // const [idRely, setIdRely] = useState("");
   // khai báo các đối tượng cần thiết để truyền dữ liệu về
   //  ta sẽ sử lí việc truyền api và lấy id để so với blog để đưa về blog detail cần thiết
-
-  function handleComment(e) {
-    e.preventDefault();
-    const flag = JSON.parse(localStorage.getItem("Flag"));
-    const userData = JSON.parse(localStorage.getItem("Userdata"));
-    if (flag) {
-      // xử lí comment tại đây
-      // alert("Good to go");
-      let accessToken = userData.data.token;
-      // prettier-ignore
-      let config = { 
-                headers: { 
-                'Authorization': 'Bearer '+ accessToken,
-                'Content-Type': 'application/x-www-form-urlencoded',
-                'Accept': 'application/json'
-                } 
-            };
-
-      if (inputs.message === "") {
-        alert(" You forgot to comment");
-      } else {
-        // xử lí comments tại đây
-        // alert("okebae");
-        const formData = new FormData();
-        formData.append("id_blog", params.id);
-        formData.append("id_user", userData.data.Auth.id);
-        formData.append("id_comment", 0);
-        formData.append("comment", inputs.message);
-        formData.append("image_user", userData.data.Auth.avatar);
-        formData.append("name_user", userData.data.Auth.name);
-
-        axios
-          .post(
-            "http://localhost/laravel8/laravel8/public/api/blog/comment/" +
-              params.id,
-            //"http://localhost/laravel8/laravel8/public/api/blog/comment/" + id post url which include id we get on the url
-            // USE THE + TO GET NOT THE , ( I DISSAPOINTED MY OWN KNOWLEGDE)
-            formData,
-            config
-          )
-          .then((res) => {
-            // console.log(res.data.data.comment);
-            console.log(res);
-            setcomment(res.data.data);
-          });
-      }
-    } else {
-      alert("You need to login to post comment");
-      navigate("/login");
-    }
-  }
 
   function renderBlogDetail() {
     // console.log(data);
@@ -151,7 +92,7 @@ function BlogDetail(props) {
       <div className="blog-post-area">{renderBlogDetail()}</div>
       {/*/blog-post-area*/}
       <div className="rating-area">
-        <Blograting data={comment} />
+        <Blograting />
         <ul className="tag">
           <li>TAG:</li>
           <li>
@@ -227,111 +168,21 @@ function BlogDetail(props) {
       <div className="response-area">
         <h2> RESPONSES</h2>
         <ul className="media-list">
-          <Listcomment data={comment} />
+          <Listcomment />
+        </ul>
+      </div>
+      {/*/Response-area*/}
+      <Comment />
+      {/*/Repaly Box*/}
+    </div>
+  );
+}
 
-          {/* 
+export default BlogDetail;
+
+/* 
 
 
-          
-          <li className="media second-media">
-            <a className="pull-left" href="#">
-              <img
-                className="media-object"
-                src="frontend/images/blog/man-three.jpg"
-                alt=""
-              />
-            </a>
-            <div className="media-body">
-              <ul className="sinlge-post-meta">
-                <li>
-                  <i className="fa fa-user" />
-                  Janis Gallagher
-                </li>
-                <li>
-                  <i className="fa fa-clock-o" /> 1:33 pm
-                </li>
-                <li>
-                  <i className="fa fa-calendar" /> DEC 5, 2013
-                </li>
-              </ul>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
-              </p>
-              <a className="btn btn-primary" href>
-                <i className="fa fa-reply" />
-                Replay
-              </a>
-            </div>
-          </li>
-          <li className="media second-media">
-            <a className="pull-left" href="#">
-              <img
-                className="media-object"
-                src="frontend/images/blog/man-three.jpg"
-                alt=""
-              />
-            </a>
-            <div className="media-body">
-              <ul className="sinlge-post-meta">
-                <li>
-                  <i className="fa fa-user" />
-                  Janis Gallagher
-                </li>
-                <li>
-                  <i className="fa fa-clock-o" /> 1:33 pm
-                </li>
-                <li>
-                  <i className="fa fa-calendar" /> DEC 5, 2013
-                </li>
-              </ul>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
-              </p>
-              <a className="btn btn-primary" href>
-                <i className="fa fa-reply" />
-                Replay
-              </a>
-            </div>
-          </li>
-          <li className="media second-media">
-            <a className="pull-left" href="#">
-              <img
-                className="media-object"
-                src="frontend/images/blog/man-three.jpg"
-                alt=""
-              />
-            </a>
-            <div className="media-body">
-              <ul className="sinlge-post-meta">
-                <li>
-                  <i className="fa fa-user" />
-                  Janis Gallagher
-                </li>
-                <li>
-                  <i className="fa fa-clock-o" /> 1:33 pm
-                </li>
-                <li>
-                  <i className="fa fa-calendar" /> DEC 5, 2013
-                </li>
-              </ul>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
-              </p>
-              <a className="btn btn-primary" href>
-                <i className="fa fa-reply" />
-                Replay
-              </a>
-            </div>
-          </li>
           <li className="media">
             <a className="pull-left" href="#">
               <img
@@ -397,105 +248,5 @@ function BlogDetail(props) {
                 Replay
               </a>
             </div>
-          </li>
-          <li className="media second-media">
-            <a className="pull-left" href="#">
-              <img
-                className="media-object"
-                src="frontend/images/blog/man-three.jpg"
-                alt=""
-              />
-            </a>
-            <div className="media-body">
-              <ul className="sinlge-post-meta">
-                <li>
-                  <i className="fa fa-user" />
-                  Janis Gallagher
-                </li>
-                <li>
-                  <i className="fa fa-clock-o" /> 1:33 pm
-                </li>
-                <li>
-                  <i className="fa fa-calendar" /> DEC 5, 2013
-                </li>
-              </ul>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
-              </p>
-              <a className="btn btn-primary" href>
-                <i className="fa fa-reply" />
-                Replay
-              </a>
-            </div>
-          </li>
-          <li className="media second-media">
-            <a className="pull-left" href="#">
-              <img
-                className="media-object"
-                src="frontend/images/blog/man-three.jpg"
-                alt=""
-              />
-            </a>
-            <div className="media-body">
-              <ul className="sinlge-post-meta">
-                <li>
-                  <i className="fa fa-user" />
-                  Janis Gallagher
-                </li>
-                <li>
-                  <i className="fa fa-clock-o" /> 1:33 pm
-                </li>
-                <li>
-                  <i className="fa fa-calendar" /> DEC 5, 2013
-                </li>
-              </ul>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
-              </p>
-              <a className="btn btn-primary" href>
-                <i className="fa fa-reply" />
-                Replay
-              </a>
-            </div>
-          </li> */}
-        </ul>
-      </div>
-      {/*/Response-area*/}
-      <form
-        className="replay-box"
-        enctype="multipart/form-data"
-        onSubmit={handleComment}
-      >
-        <div className="row">
-          <div className="col-sm-12">
-            <h2>Leave a replay</h2>
-            <div className="text-area">
-              <div className="blank-arrow">
-                <label>Your Name</label>
-              </div>
-              <span>*</span>
-              <textarea
-                name="message"
-                rows={11}
-                defaultValue={""}
-                onChange={handleInput}
-              />
-              <button className="btn btn-primary" href>
-                post comment
-              </button>
-            </div>
-          </div>
-        </div>
-      </form>
-      {/*/Repaly Box*/}
-    </div>
-  );
-}
-
-export default BlogDetail;
+       
+          */
