@@ -9,6 +9,8 @@ import Comment from "./Comment";
 function BlogDetail(props) {
   let params = useParams();
   const [data, setData] = useState([]);
+  // tạo state cho comment
+  const [comment, setComment] = useState([]);
 
   useEffect(() => {
     axios
@@ -17,7 +19,7 @@ function BlogDetail(props) {
       )
       .then((response) => {
         setData(response.data.data);
-        // setComment(response.data.data.comment);
+        setComment(response.data.data.comment);
       })
       .catch(function (error) {
         console.log(error);
@@ -82,6 +84,20 @@ function BlogDetail(props) {
         </>
       );
     }
+  }
+
+  // get cmt mới nhất về
+
+  function getCmt(data) {
+    const cmtData = data.data.data;
+    // const newData = listCmt + cmtData;
+    console.log(cmtData);
+    if (comment.length > 0) {
+      setComment(comment.map((data) => data.data.data).join(" "));
+    }
+    // setComment(comment + cmtData);
+    // concat array
+    // nối 2 mảng lại
   }
 
   // console.log("data" + data);
@@ -168,11 +184,11 @@ function BlogDetail(props) {
       <div className="response-area">
         <h2> RESPONSES</h2>
         <ul className="media-list">
-          <Listcomment />
+          <Listcomment listCmt={comment} />
         </ul>
       </div>
       {/*/Response-area*/}
-      <Comment />
+      <Comment getCmt={getCmt} />
       {/*/Repaly Box*/}
     </div>
   );

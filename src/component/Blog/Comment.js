@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Listcomment from "./Listcomment";
 
-function Comment() {
+function Comment(props) {
   const navigate = useNavigate();
   let params = useParams();
   const [comment, setcomment] = useState("");
@@ -17,6 +17,9 @@ function Comment() {
     const valueInput = e.target.value;
     setInputs((state) => ({ ...state, [nameInput]: valueInput }));
   }
+
+  // console.log(props);
+  // props.getCmt(response);
 
   function handleComment(e) {
     e.preventDefault();
@@ -59,9 +62,15 @@ function Comment() {
           )
           .then((res) => {
             // console.log(res.data.data.comment);
-            console.log(res);
+            // console.log(res);
             setcomment(res.data.data);
+            // truyền dữ liệu mới get về BDetail = props
+            // khai báo function getCmt
+            // và sau đó ta truyền function đã khai báo :  <Comment getCmt={getCmt}  />
+            props.getCmt(res);
           });
+
+        // console.log(comment);
       }
     } else {
       alert("You need to login to post comment");

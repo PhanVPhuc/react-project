@@ -19,7 +19,7 @@ function Blograting(props) {
       )
       .then((response) => {
         // setRating(response.data);
-        console.log(response.data.data);
+        // console.log(response.data.data);
         // handle logic
         // trung bình + = a+b+c+..+n / tổng số lượng rate hiện có .
 
@@ -37,7 +37,7 @@ function Blograting(props) {
           });
           sum = sum / Object.keys(response.data.data).length;
         }
-        console.log(sum);
+        // console.log(sum);
         setRating(sum);
       })
       .catch(function (error) {
