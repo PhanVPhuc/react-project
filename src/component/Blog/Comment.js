@@ -21,6 +21,9 @@ function Comment(props) {
   // console.log(props);
   // props.getCmt(response);
 
+  const idCha = props.getidcha;
+  console.log(idCha);
+
   function handleComment(e) {
     e.preventDefault();
 
@@ -40,7 +43,7 @@ function Comment(props) {
       const formData = new FormData();
       formData.append("id_blog", params.id);
       formData.append("id_user", userData.data.Auth.id);
-      formData.append("id_comment", 0);
+      formData.append("id_comment", idCha ? idCha : 0);
       formData.append("comment", inputs.message);
       formData.append("image_user", userData.data.Auth.avatar);
       formData.append("name_user", userData.data.Auth.name);

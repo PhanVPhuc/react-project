@@ -11,6 +11,7 @@ function BlogDetail(props) {
   const [data, setData] = useState([]);
   // tạo state cho comment
   const [comment, setComment] = useState([]);
+  const [idUser, getIduser] = useState("");
 
   useEffect(() => {
     axios
@@ -92,13 +93,19 @@ function BlogDetail(props) {
     const cmtData = data.data.data;
     // const newData = listCmt + cmtData;
     console.log(cmtData);
-    if (comment.length > 0) {
-      setComment(comment.map((data) => data.data.data).join(" "));
-    }
-    // setComment(comment + cmtData);
+
+    setComment(comment.concat(cmtData));
     // concat array
     // nối 2 mảng lại
   }
+
+  // get idCha
+  function getidUser(data) {
+    // console.log(data);
+    // ta dùng state const [idUser, getIduser] = useState(""); để đưa idcha ta lấy bên listcmt về để đưa vào idUser
+    getIduser(data);
+  }
+  // console.log(idUser);
 
   // console.log("data" + data);
   // console.log("comment" + comment);
@@ -184,11 +191,15 @@ function BlogDetail(props) {
       <div className="response-area">
         <h2> RESPONSES</h2>
         <ul className="media-list">
-          <Listcomment listCmt={comment} />
+          {/* tương tự như comment ta truyền dữ liệu theo 1 vòng tròn */}
+          {/* từ list sang Detail rồi sau đó từ Detail sang comment */}
+          <Listcomment getidUser={getidUser} listCmt={comment} />
         </ul>
       </div>
       {/*/Response-area*/}
-      <Comment getCmt={getCmt} />
+      {/* còn comment thì từ comment ta lấy cái hàm get cmt truyền sang để lấy data về rồi như trên
+       : comment --> Detail --> listCmt */}
+      <Comment getCmt={getCmt} getidcha={idUser} />
       {/*/Repaly Box*/}
     </div>
   );
