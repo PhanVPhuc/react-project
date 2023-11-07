@@ -10,7 +10,7 @@ function Listcomment(props) {
   // const data = props.listCmt;
   // console.log(data);
   function replyId(e) {
-    // lấy id ở nút reply tại mỗi cmt đã được xuất ra màn hình 
+    // lấy id ở nút reply tại mỗi cmt đã được xuất ra màn hình
     const repId = e.target.id;
     // console.log(repId);
     props.getidUser(repId);
@@ -26,7 +26,7 @@ function Listcomment(props) {
       const image =
         "http://localhost/laravel8/laravel8/public/upload/user/avatar/" +
         value.image_user;
-      // console.log(image);
+      console.log(image);
       if (value.id_comment == 0) {
         return (
           <>
@@ -68,6 +68,10 @@ function Listcomment(props) {
               </div>
             </li>
             {data.map((value2, key2) => {
+              const image2 =
+                "http://localhost/laravel8/laravel8/public/upload/user/avatar/" +
+                value2.image_user;
+              console.log(image2);
               if (value.id == value2.id_comment) {
                 return (
                   <>
@@ -75,7 +79,7 @@ function Listcomment(props) {
                       <a className="pull-left" href="#">
                         <img
                           className="media-object"
-                          src={image}
+                          src={image2}
                           alt=""
                           width="65"
                           height="65"
@@ -113,18 +117,3 @@ function Listcomment(props) {
 }
 
 export default Listcomment;
-
-// <li className="media second-media">
-//   <a className="pull-left" href="#">
-//     <img className="media-object" src="images/blog/man-three.jpg" alt="" />
-//   </a>
-//   <div className="media-body">
-//     <ul className="sinlge-post-meta">
-//       <li><i className="fa fa-user" />Janis Gallagher</li>
-//       <li><i className="fa fa-clock-o" /> 1:33 pm</li>
-//       <li><i className="fa fa-calendar" /> DEC 5, 2013</li>
-//     </ul>
-//     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-//     <a className="btn btn-primary" href><i className="fa fa-reply" />Replay</a>
-//   </div>
-// </li>

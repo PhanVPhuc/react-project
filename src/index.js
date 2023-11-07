@@ -16,6 +16,7 @@ import BlogDetail from "./component/Blog/BDetail";
 import Blog from "./component/Blog/Blog";
 import Register from "./component/member/Register";
 import Maincontent from "./component/MainContent";
+import Account from "./component/Account/Account";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -34,6 +35,7 @@ root.render(
           <Route path="/shop" element={<MyProduct />} />
           <Route path="/product-details" element={<ProductDetail />} />
           <Route path="/Register" element={<Register />} />
+          <Route path="/account" element={<Account />} />
         </Routes>
       </App>
     </Router>
