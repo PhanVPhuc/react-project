@@ -19,6 +19,7 @@ function App(props) {
             ) : (
               <Sidebar />
             )}
+
             {props.children}
           </div>
         </div>

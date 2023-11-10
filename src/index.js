@@ -10,13 +10,14 @@ import Cart from "./component/Cart";
 import Login from "./component/member/Login";
 import Error404 from "./component/404";
 import ContactUs from "./component/Contact-us";
-import MyProduct from "./component/Myproduct";
-import ProductDetail from "./component/Productfetail";
+import MyProduct from "./component/Product/Myproduct";
+import ProductDetail from "./component/Product/Productfetail";
 import BlogDetail from "./component/Blog/BDetail";
 import Blog from "./component/Blog/Blog";
 import Register from "./component/member/Register";
 import Maincontent from "./component/MainContent";
 import Account from "./component/Account/Account";
+import Addproduct from "./component/Product/Add-product";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -36,6 +37,7 @@ root.render(
           <Route path="/product-details" element={<ProductDetail />} />
           <Route path="/Register" element={<Register />} />
           <Route path="/account" element={<Account />} />
+          <Route path="/account/add-product" element={<Addproduct />} />
         </Routes>
       </App>
     </Router>
