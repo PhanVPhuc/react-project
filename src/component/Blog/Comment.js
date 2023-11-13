@@ -84,7 +84,7 @@ function Comment(props) {
     <>
       <form
         className="replay-box"
-        enctype="multipart/form-data"
+        encType="multipart/form-data"
         onSubmit={handleComment}
       >
         <div className="row">
@@ -101,7 +101,7 @@ function Comment(props) {
                 defaultValue={""}
                 onChange={handleInput}
               />
-              <button className="btn btn-primary" href>
+              <button className="btn btn-primary" href="#">
                 post comment
               </button>
             </div>

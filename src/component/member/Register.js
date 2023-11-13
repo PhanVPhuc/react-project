@@ -121,7 +121,7 @@ function Register() {
         <div className="signup-form">
           {/*sign up form*/}
           <h2>New User Signup!</h2>
-          <form enctype="multipart/form-data" onSubmit={handleSubmit}>
+          <form encType="multipart/form-data" onSubmit={handleSubmit}>
             <input
               type="text"
               placeholder="Name"

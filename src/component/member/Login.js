@@ -81,7 +81,7 @@ function Login() {
               {/*login form*/}
               <h2>Login to your account</h2>
               <Error error={error} />
-              <form enctype="multipart/form-data" onSubmit={handleSubmit}>
+              <form encType="multipart/form-data" onSubmit={handleSubmit}>
                 {/* <input
                   type="text"
                   placeholder="Name"

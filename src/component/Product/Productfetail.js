@@ -18,35 +18,35 @@ function ProductDetail() {
             {/* Wrapper for slides */}
             <div className="carousel-inner">
               <div className="item active">
-                <a href>
+                <a href="#">
                   <img src="images/product-details/similar1.jpg" alt="" />
                 </a>
-                <a href>
+                <a href="#">
                   <img src="images/product-details/similar2.jpg" alt="" />
                 </a>
-                <a href>
+                <a href="#">
                   <img src="images/product-details/similar3.jpg" alt="" />
                 </a>
               </div>
               <div className="item">
-                <a href>
+                <a href="#">
                   <img src="images/product-details/similar1.jpg" alt="" />
                 </a>
-                <a href>
+                <a href="#">
                   <img src="images/product-details/similar2.jpg" alt="" />
                 </a>
-                <a href>
+                <a href="#">
                   <img src="images/product-details/similar3.jpg" alt="" />
                 </a>
               </div>
               <div className="item">
-                <a href>
+                <a href="#">
                   <img src="images/product-details/similar1.jpg" alt="" />
                 </a>
-                <a href>
+                <a href="#">
                   <img src="images/product-details/similar2.jpg" alt="" />
                 </a>
-                <a href>
+                <a href="#">
                   <img src="images/product-details/similar3.jpg" alt="" />
                 </a>
               </div>
@@ -97,7 +97,7 @@ function ProductDetail() {
             <p>
               <b>Brand:</b> E-SHOPPER
             </p>
-            <a href>
+            <a href="#">
               <img
                 src="images/product-details/share.png"
                 className="share img-responsive"
@@ -362,19 +362,19 @@ function ProductDetail() {
             <div className="col-sm-12">
               <ul>
                 <li>
-                  <a href>
+                  <a href="#">
                     <i className="fa fa-user" />
                     EUGEN
                   </a>
                 </li>
                 <li>
-                  <a href>
+                  <a href="#">
                     <i className="fa fa-clock-o" />
                     12:41 PM
                   </a>
                 </li>
                 <li>
-                  <a href>
+                  <a href="#">
                     <i className="fa fa-calendar-o" />
                     31 DEC 2014
                   </a>

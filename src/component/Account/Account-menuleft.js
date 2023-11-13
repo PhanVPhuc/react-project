@@ -52,7 +52,7 @@ function AccountMenuLeft() {
                       href="#products"
                     >
                       <span className="badge pull-right">
-                        <i class="fa fa-chevron-right"></i>
+                        <i className="fa fa-chevron-right"></i>
                       </span>
                       Add products
                     </Link>

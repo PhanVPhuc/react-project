@@ -29,7 +29,7 @@ function Checkout() {
               </label>
             </li>
             <li>
-              <a href>
+              <a href="#">
                 <i className="fa fa-times" />
                 Cancel
               </a>
@@ -55,10 +55,10 @@ function Checkout() {
                   <input type="password" placeholder="Password" />
                   <input type="password" placeholder="Confirm password" />
                 </form>
-                <a className="btn btn-primary" href>
+                <a className="btn btn-primary" href="#">
                   Get Quotes
                 </a>
-                <a className="btn btn-primary" href>
+                <a className="btn btn-primary" href="#">
                   Continue
                 </a>
               </div>
@@ -145,13 +145,13 @@ function Checkout() {
             <tbody>
               <tr>
                 <td className="cart_product">
-                  <a href>
+                  <a href="#">
                     <img src="images/cart/one.png" alt="" />
                   </a>
                 </td>
                 <td className="cart_description">
                   <h4>
-                    <a href>Colorblock Scuba</a>
+                    <a href="#">Colorblock Scuba</a>
                   </h4>
                   <p>Web ID: 1089772</p>
                 </td>
@@ -160,7 +160,7 @@ function Checkout() {
                 </td>
                 <td className="cart_quantity">
                   <div className="cart_quantity_button">
-                    <a className="cart_quantity_up" href>
+                    <a className="cart_quantity_up" href="#">
                       {" "}
                       +{" "}
                     </a>
@@ -172,7 +172,7 @@ function Checkout() {
                       autoComplete="off"
                       size={2}
                     />
-                    <a className="cart_quantity_down" href>
+                    <a className="cart_quantity_down" href="#">
                       {" "}
                       -{" "}
                     </a>
@@ -182,20 +182,20 @@ function Checkout() {
                   <p className="cart_total_price">$59</p>
                 </td>
                 <td className="cart_delete">
-                  <a className="cart_quantity_delete" href>
+                  <a className="cart_quantity_delete" href="#">
                     <i className="fa fa-times" />
                   </a>
                 </td>
               </tr>
               <tr>
                 <td className="cart_product">
-                  <a href>
+                  <a href="#">
                     <img src="images/cart/two.png" alt="" />
                   </a>
                 </td>
                 <td className="cart_description">
                   <h4>
-                    <a href>Colorblock Scuba</a>
+                    <a href="#">Colorblock Scuba</a>
                   </h4>
                   <p>Web ID: 1089772</p>
                 </td>
@@ -204,7 +204,7 @@ function Checkout() {
                 </td>
                 <td className="cart_quantity">
                   <div className="cart_quantity_button">
-                    <a className="cart_quantity_up" href>
+                    <a className="cart_quantity_up" href="#">
                       {" "}
                       +{" "}
                     </a>
@@ -216,7 +216,7 @@ function Checkout() {
                       autoComplete="off"
                       size={2}
                     />
-                    <a className="cart_quantity_down" href>
+                    <a className="cart_quantity_down" href="#">
                       {" "}
                       -{" "}
                     </a>
@@ -226,20 +226,20 @@ function Checkout() {
                   <p className="cart_total_price">$59</p>
                 </td>
                 <td className="cart_delete">
-                  <a className="cart_quantity_delete" href>
+                  <a className="cart_quantity_delete" href="#">
                     <i className="fa fa-times" />
                   </a>
                 </td>
               </tr>
               <tr>
                 <td className="cart_product">
-                  <a href>
+                  <a href="#">
                     <img src="images/cart/three.png" alt="" />
                   </a>
                 </td>
                 <td className="cart_description">
                   <h4>
-                    <a href>Colorblock Scuba</a>
+                    <a href="#">Colorblock Scuba</a>
                   </h4>
                   <p>Web ID: 1089772</p>
                 </td>
@@ -248,7 +248,7 @@ function Checkout() {
                 </td>
                 <td className="cart_quantity">
                   <div className="cart_quantity_button">
-                    <a className="cart_quantity_up" href>
+                    <a className="cart_quantity_up" href="#">
                       {" "}
                       +{" "}
                     </a>
@@ -260,7 +260,7 @@ function Checkout() {
                       autoComplete="off"
                       size={2}
                     />
-                    <a className="cart_quantity_down" href>
+                    <a className="cart_quantity_down" href="#">
                       {" "}
                       -{" "}
                     </a>
@@ -270,7 +270,7 @@ function Checkout() {
                   <p className="cart_total_price">$59</p>
                 </td>
                 <td className="cart_delete">
-                  <a className="cart_quantity_delete" href>
+                  <a className="cart_quantity_delete" href="#">
                     <i className="fa fa-times" />
                   </a>
                 </td>

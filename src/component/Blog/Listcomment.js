@@ -99,7 +99,7 @@ function Listcomment(props) {
                           </li>
                         </ul>
                         <p>{value2.comment}</p>
-                        <a className="btn btn-primary" href>
+                        <a className="btn btn-primary" href="#">
                           <i className="fa fa-reply" />
                           Replay
                         </a>

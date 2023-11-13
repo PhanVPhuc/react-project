@@ -69,7 +69,7 @@ function Blog(props) {
                 <i className="fa fa-star-half-o" />
               </span>
             </div>
-            <a href>
+            <a href="#">
               {/* <img src="http://localhost/public/upload/Blog/image/" alt="" /> */}
               <img alt="" src={image} />
             </a>
@@ -121,7 +121,7 @@ function Blog(props) {
               <i className="fa fa-star-half-o" />
             </span>
           </div>
-          <a href>
+          <a href="#">
             <img src="frontend/images/blog/blog-one.jpg" alt="" />
           </a>
           <p>
@@ -145,13 +145,13 @@ function Blog(props) {
               </a>
             </li>
             <li>
-              <a href>2</a>
+              <a href="#">2</a>
             </li>
             <li>
-              <a href>3</a>
+              <a href="#">3</a>
             </li>
             <li>
-              <a href>
+              <a href="#">
                 <i className="fa fa-angle-double-right" />
               </a>
             </li>

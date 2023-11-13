@@ -56,14 +56,14 @@ function BlogDetail(props) {
                 </li>
               </ul>
               <span>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-half-o"></i>
+                <i className="fa fa-star"></i>
+                <i className="fa fa-star"></i>
+                <i className="fa fa-star"></i>
+                <i className="fa fa-star"></i>
+                <i className="fa fa-star-half-o"></i>
               </span>
             </div>
-            <a href>
+            <a href="#">
               {/* <img src={image} alt="" /> */}
               <img alt=" wut  ? " src={image} />
 
@@ -119,17 +119,17 @@ function BlogDetail(props) {
         <ul className="tag">
           <li>TAG:</li>
           <li>
-            <a className="color" href>
+            <a className="color" href="#">
               Pink <span>/</span>
             </a>
           </li>
           <li>
-            <a className="color" href>
+            <a className="color" href="#">
               T-Shirt <span>/</span>
             </a>
           </li>
           <li>
-            <a className="color" href>
+            <a className="color" href="#">
               Girls
             </a>
           </li>
@@ -137,51 +137,51 @@ function BlogDetail(props) {
       </div>
       {/*/rating-area*/}
       <div className="socials-share">
-        <a href>
+        <a href="#">
           <img src="frontend/images/blog/socials.png" alt="" />
         </a>
       </div>
       {/*/socials-share*/}
-      <div class="media commnets">
-        <a class="pull-left" href="#">
+      <div className="media commnets">
+        <a className="pull-left" href="#">
           <img
-            class="media-object"
+            className="media-object"
             src="frontend/images/blog/man-one.jpg"
             alt=""
           />
         </a>
-        <div class="media-body">
-          <h4 class="media-heading">Annie Davis</h4>
+        <div className="media-body">
+          <h4 className="media-heading">Annie Davis</h4>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
             aliquip ex ea commodo consequat.
           </p>
-          <div class="blog-socials">
+          <div className="blog-socials">
             <ul>
               <li>
                 <a href="">
-                  <i class="fa fa-facebook"></i>
+                  <i className="fa fa-facebook"></i>
                 </a>
               </li>
               <li>
                 <a href="">
-                  <i class="fa fa-twitter"></i>
+                  <i className="fa fa-twitter"></i>
                 </a>
               </li>
               <li>
                 <a href="">
-                  <i class="fa fa-dribbble"></i>
+                  <i className="fa fa-dribbble"></i>
                 </a>
               </li>
               <li>
                 <a href="">
-                  <i class="fa fa-google-plus"></i>
+                  <i className="fa fa-google-plus"></i>
                 </a>
               </li>
             </ul>
-            <a class="btn btn-primary" href="">
+            <a className="btn btn-primary" href="">
               Other Posts
             </a>
           </div>
@@ -237,7 +237,7 @@ export default BlogDetail;
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
                 nisi ut aliquip ex ea commodo consequat.
               </p>
-              <a className="btn btn-primary" href>
+              <a className="btn btn-primary" href="#">
                 <i className="fa fa-reply" />
                 Replay
               </a>
@@ -270,7 +270,7 @@ export default BlogDetail;
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
                 nisi ut aliquip ex ea commodo consequat.
               </p>
-              <a className="btn btn-primary" href>
+              <a className="btn btn-primary" href="#">
                 <i className="fa fa-reply" />
                 Replay
               </a>

@@ -107,7 +107,7 @@ function Account() {
       <div className="col-sm-4">
         <div className="signup-form">
           <h2>Change your information !</h2>
-          <form enctype="multipart/form-data" onSubmit={handleSubmit}>
+          <form encType="multipart/form-data" onSubmit={handleSubmit}>
             <input
               type="text"
               placeholder={user.username}

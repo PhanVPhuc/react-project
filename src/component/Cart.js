@@ -25,13 +25,13 @@ function Cart() {
             <tbody>
               <tr>
                 <td className="cart_product">
-                  <a href>
+                  <a href="#">
                     <img src="images/cart/one.png" alt="" />
                   </a>
                 </td>
                 <td className="cart_description">
                   <h4>
-                    <a href>Colorblock Scuba</a>
+                    <a href="#">Colorblock Scuba</a>
                   </h4>
                   <p>Web ID: 1089772</p>
                 </td>
@@ -40,7 +40,7 @@ function Cart() {
                 </td>
                 <td className="cart_quantity">
                   <div className="cart_quantity_button">
-                    <a className="cart_quantity_up" href>
+                    <a className="cart_quantity_up" href="#">
                       {" "}
                       +{" "}
                     </a>
@@ -52,7 +52,7 @@ function Cart() {
                       autoComplete="off"
                       size={2}
                     />
-                    <a className="cart_quantity_down" href>
+                    <a className="cart_quantity_down" href="#">
                       {" "}
                       -{" "}
                     </a>
@@ -62,20 +62,20 @@ function Cart() {
                   <p className="cart_total_price">$59</p>
                 </td>
                 <td className="cart_delete">
-                  <a className="cart_quantity_delete" href>
+                  <a className="cart_quantity_delete" href="#">
                     <i className="fa fa-times" />
                   </a>
                 </td>
               </tr>
               <tr>
                 <td className="cart_product">
-                  <a href>
+                  <a href="#">
                     <img src="images/cart/two.png" alt="" />
                   </a>
                 </td>
                 <td className="cart_description">
                   <h4>
-                    <a href>Colorblock Scuba</a>
+                    <a href="#">Colorblock Scuba</a>
                   </h4>
                   <p>Web ID: 1089772</p>
                 </td>
@@ -84,7 +84,7 @@ function Cart() {
                 </td>
                 <td className="cart_quantity">
                   <div className="cart_quantity_button">
-                    <a className="cart_quantity_up" href>
+                    <a className="cart_quantity_up" href="#">
                       {" "}
                       +{" "}
                     </a>
@@ -96,7 +96,7 @@ function Cart() {
                       autoComplete="off"
                       size={2}
                     />
-                    <a className="cart_quantity_down" href>
+                    <a className="cart_quantity_down" href="#">
                       {" "}
                       -{" "}
                     </a>
@@ -106,20 +106,20 @@ function Cart() {
                   <p className="cart_total_price">$59</p>
                 </td>
                 <td className="cart_delete">
-                  <a className="cart_quantity_delete" href>
+                  <a className="cart_quantity_delete" href="#">
                     <i className="fa fa-times" />
                   </a>
                 </td>
               </tr>
               <tr>
                 <td className="cart_product">
-                  <a href>
+                  <a href="#">
                     <img src="images/cart/three.png" alt="" />
                   </a>
                 </td>
                 <td className="cart_description">
                   <h4>
-                    <a href>Colorblock Scuba</a>
+                    <a href="#">Colorblock Scuba</a>
                   </h4>
                   <p>Web ID: 1089772</p>
                 </td>
@@ -128,7 +128,7 @@ function Cart() {
                 </td>
                 <td className="cart_quantity">
                   <div className="cart_quantity_button">
-                    <a className="cart_quantity_up" href>
+                    <a className="cart_quantity_up" href="#">
                       {" "}
                       +{" "}
                     </a>
@@ -140,7 +140,7 @@ function Cart() {
                       autoComplete="off"
                       size={2}
                     />
-                    <a className="cart_quantity_down" href>
+                    <a className="cart_quantity_down" href="#">
                       {" "}
                       -{" "}
                     </a>
@@ -150,7 +150,7 @@ function Cart() {
                   <p className="cart_total_price">$59</p>
                 </td>
                 <td className="cart_delete">
-                  <a className="cart_quantity_delete" href>
+                  <a className="cart_quantity_delete" href="#">
                     <i className="fa fa-times" />
                   </a>
                 </td>
