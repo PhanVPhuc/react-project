@@ -1,224 +1,191 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Form } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-function Addproduct() {
-  const [input, setInput] = useState({
+function AddProduct() {
+  // add product begin
+  // khai báo các state mình sẽ sử dụng trong component này
+  const [file, setFile] = useState("");
+  const [errors, setErrors] = useState({});
+  const [brand, setBrand] = useState([]);
+  const [category, setCategory] = useState([]);
+  const [inputs, setInputs] = useState({
     name: "",
     price: "",
     category: "",
     brand: "",
-    company: "",
-    detail: "",
     status: "",
     sale: "",
-    item: "",
+    image: "",
+    company: "",
+    detail: "",
   });
-  const [avatar, setAvatar] = useState({});
-  let flag = JSON.parse(localStorage.getItem("Flag"));
-  let userdata = JSON.parse(localStorage.getItem("Userdata"));
 
-  // ---------------- get brand---------------
-  const [categorybrand, setCategorybrand] = useState([]);
-  const brandUrl =
-    "http://localhost/laravel8/laravel8/public/api/category-brand";
-  useEffect(() => {
-    axios
-      .get(brandUrl)
-      .then((res) => {
-        setCategorybrand(res.data);
-      })
-      .catch((error) => console.log(error));
-  }, []);
-  const brand = categorybrand.brand;
-  const category = categorybrand.category;
-  // ------------------------------------
-  // ------------- brand and category options
-
-  function brandOption() {
-    if (!categorybrand || !categorybrand.brand) {
-      // kiểm tra đã có dữ liệu hay chưa
-      console.log("Khong co du lieu");
-      return null;
-      // Return null or a fallback element if brand is undefined
-    }
-
-    return categorybrand.brand.map((value, key) => {
-      return (
-        <option key={key} value={value.id}>
-          {value.brand}
-        </option>
-      );
-    });
+  // function xử lí inputs
+  function handleInputs(e) {
+    const nameInputs = e.target.name;
+    //  e.target.name get name để làm key cho inputs
+    const valueInputs = e.target.value;
+    // e.target.value get value để làm value cho inputs
+    setInputs((state) => ({ ...state, [nameInputs]: valueInputs }));
   }
-
-  function categoryOption() {
-    if (!categorybrand || !categorybrand.category) {
-      // kiểm tra đã có dữ liệu hay chưa
-      console.log("Khong co du lieu");
-      return null;
-      // Return null or a fallback element if brand is undefined
-    }
-    return category.map((value, key) => {
-      return (
-        <option key={key} value={value.id}>
-          {value.category}
-        </option>
-      );
-    });
+  // function xử lí file
+  function handleFile(e) {
+    const getFile = e.target.files;
+    // console.log(getFile);
+    setFile(getFile);
   }
+  // ------------get brand and category-----------
 
-  // ------------------------------------
-
-  // ------------------new or sale status---------
-  function isStatus(e) {
-    return (
-      <>
-        <label> Status</label>
-        <select name="status" onChange={handleInput}>
-          <option value="0">New</option>
-          <option value="1">Sale</option>
-        </select>
-      </>
-    );
-  }
-
-  function isSale(e) {
-    // if () {
-    return (
-      <>
-        <label> Sale</label>
-        <input
-          type="number"
-          min="0"
-          step="any"
-          name="Sale"
-          placeholder="sale of ? % "
-          onChange={handleInput}
-        />
-      </>
-    );
-    // }
-  }
-
-  // ---------------------------------------------------
-  const handleInput = (e) => {
-    const nameInput = e.target.name;
-    const valueInput = e.target.value;
-    setInput((state) => ({
-      ...state,
-      [nameInput]: valueInput,
-    }));
-  };
-  let accessToken = userdata.token;
-  // prettier-ignore
-  let config = {
-        headers: {
-          "Authorization": "Bearer " + accessToken,
-          "Content-Type": "application/x-www-form-urlencoded",
-          "Accept": "application/json",
-        },
-      };
-  let formData = new FormData();
-  formData.append("name", input.name);
-  formData.append("price", input.price);
-  formData.append("category", input.category);
-  formData.append("brand", input.brand);
-  formData.append("company", input.company);
-  formData.append("detail", input.detail);
-  formData.append("status", input.status);
-  formData.append("sale", input.sale);
-
-  // Object.keys(avatar).map((item, i) => {
-  //   formData.append("file[]", avatar[item]);
-  // });
+  //  lấy data từ api category-brand
+  // sau khi get được data từ api về
+  //  thì tạo function và set vào xử lí
+  // dùng hàm map để render ra thẻ input.
 
   useEffect(() => {
     axios
-      .post(
-        "http://localhost/laravel8/laravel8/public/api/user/product/add ",
-        config
-      )
+      .get("http://localhost/laravel8/laravel8/public/api/category-brand")
       .then((res) => {
-        setInput(res.data);
+        // console.log(res.data);
+        setBrand(res.data.brand);
+        setCategory(res.data.category);
       })
       .catch((error) => console.log(error));
   }, []);
 
-  console.log(categorybrand);
-  console.log(category);
-  console.log(brand);
+  function renderBrand() {
+    if (brand.length > 0) {
+      return brand.map((key, value) => {
+        return (
+          <option key={value} value={key.id}>
+            {key.brand}
+          </option>
+        );
+      });
+    }
+  }
+  function renderCategory() {
+    if (category.length > 0) {
+      return category.map((key, value) => {
+        return (
+          <option key={value} value={key.id}>
+            {key.category}
+          </option>
+        );
+      });
+    }
+  }
+  // -------------end get brand and category------
+
+  // render sale -----------------------------
+  function renderSale() {
+    if (inputs.status === 1) {
+      return (
+        <div style={{ width: "200px" }}>
+          <input
+            style={{ width: "100px", float: "left" }}
+            type="text"
+            name="sale"
+            onChange={handleInputs}
+            value={inputs.sale}
+          />
+          <span
+            style={{
+              width: "100px",
+              height: "40px",
+              float: "left",
+              padding: "9px 2px 0px 5px",
+            }}
+          >
+            %
+          </span>
+        </div>
+      );
+    }
+  }
+  // end render sale----------------------
+
+  // render error begin --------------------
+
+  function renderError() {
+    // Khai báo biến errors
+
+    if (Object.keys(errors).length > 0) {
+      return Object.keys(errors).map((key, index) => {
+        return <li key={index}>{errors[key]}</li>;
+      });
+    }
+  }
+  // render error end------------------------
+
+  // handle submit xử lí tại đây-----------------
   function handleSubmit(e) {
     e.preventDefault();
-    // console.log(input);
   }
+  // end handle submit------------------------
   return (
-    <>
-      <div className="col-sm-4">
-        <div className="signup-form">
-          <h2>Create a product !</h2>
-          <form encType="multipart/form-data" onSubmit={handleSubmit}>
-            <label> Product name</label>
-            <input
-              type="text"
-              placeholder="name"
-              name="name"
-              // required
-              // value={} lấy dữ liệu để đưa ra màn hình
-              // và sẽ không nhập được dữ liệu nên xài placeholder
-              onChange={handleInput}
-            />
-            <label>Product price</label>
-            <input
-              type="number"
-              min="1"
-              step="any"
-              name="price"
-              placeholder="How much is this product ?"
-              onChange={handleInput}
-              // required
-            />
-            {isStatus()}
-            {isSale()}
-            <label> Category</label>
-            <select name="category" onChange={handleInput}>
-              <option value="" id="">
-                Please choose brand
-              </option>
-              {categoryOption()}
-            </select>
-            <label> Product brand</label>
-            <select name="brand" onChange={handleInput}>
-              <option value="" id="">
-                Please choose brand
-              </option>
-              {brandOption()}
-            </select>
+    <div className="col-sm-4">
+      <div className="signup-form">
+        {/*sign up form*/}
+        <h2>Create Product!</h2>
+        <ul className="error-form">{renderError()}</ul>
+        <form
+          style={{ width: "800px" }}
+          action="#"
+          encType="multipart/form-data"
+          onSubmit={handleSubmit}
+        >
+          <input
+            type="text"
+            placeholder="Name"
+            name="name"
+            onChange={handleInputs}
+            value={inputs.name}
+          />
+          <input
+            type="text"
+            placeholder="Price"
+            name="price"
+            onChange={handleInputs}
+            value={inputs.price}
+          />
+          <select name="category" onChange={handleInputs}>
+            <option value="">Please chose category</option>
+            {renderCategory()}
+          </select>
+          <select name="brand" onChange={handleInputs}>
+            <option value="">Please chose brand</option>
+            {renderBrand()}
+          </select>
 
-            <label> Company profile</label>
-            <input
-              type="text"
-              placeholder="Company profile"
-              name="company"
-              // required
-              onChange={handleInput}
-            />
-
-            <label htmlFor="files" onChange={handleInput}>
-              Select product image:
-            </label>
-            {/* <input type="file" id="files" name="files" multiple required /> */}
-            <label> Detail</label>
-            {/* <textarea placeholder="Add detail for this product" required /> */}
-            <br />
-            <button type="submit" className="btn btn-default">
-              Add product
-            </button>
-          </form>
-        </div>
+          <select name="status" value={inputs.status} onChange={handleInputs}>
+            <option value="0">New</option>
+            <option value="1">Sale</option>
+          </select>
+          {renderSale()}
+          <input
+            type="text"
+            placeholder="Company profile"
+            name="company"
+            onChange={handleInputs}
+            value={inputs.company}
+          />
+          <input type="file" name="file" onChange={handleFile} multiple />
+          <textarea
+            placeholder="Detail"
+            name="detail"
+            onChange={handleInputs}
+            value={inputs.detail}
+            rows={4}
+            cols={40}
+          />
+          <button type="submit" className="btn btn-default">
+            Create
+          </button>
+        </form>
       </div>
-    </>
+    </div>
   );
 }
 
-export default Addproduct;
+export default AddProduct;

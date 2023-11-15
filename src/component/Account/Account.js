@@ -19,8 +19,8 @@ function Account() {
     "http://localhost/laravel8/laravel8/public/upload/user/avatar/" +
     user.avatar;
   useEffect(() => {
-    let userData = JSON.parse(localStorage.getItem("Userdata"));
-
+    let data = JSON.parse(localStorage.getItem("Userdata"));
+    let userData = data.data;
     if (userData) {
       userData = userData.Auth;
       console.log(userData);
