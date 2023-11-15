@@ -14,8 +14,8 @@ function AddProduct() {
     price: "",
     category: "",
     brand: "",
-    status: "",
-    sale: "",
+    status: 1,
+    sale: 0,
     image: "",
     company: "",
     detail: "",
@@ -79,7 +79,7 @@ function AddProduct() {
 
   // render sale -----------------------------
   function renderSale() {
-    if (inputs.status === 1) {
+    if (inputs.status == 0) {
       return (
         <div style={{ width: "200px" }}>
           <input
@@ -87,6 +87,7 @@ function AddProduct() {
             type="text"
             name="sale"
             onChange={handleInputs}
+            placeholder="ex : 10"
             value={inputs.sale}
           />
           <span
@@ -159,8 +160,8 @@ function AddProduct() {
           </select>
 
           <select name="status" value={inputs.status} onChange={handleInputs}>
-            <option value="0">New</option>
-            <option value="1">Sale</option>
+            <option value="1">New</option>
+            <option value="0">Sale</option>
           </select>
           {renderSale()}
           <input
