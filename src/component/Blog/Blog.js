@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import BlogDetail from "./BDetail";
 
 function Blog(props) {
-  /* Giống bài 18 , lấy api về đưa vào usetate rồi xuất ra blog bằng hàm renderDâta
+  /* Giống bài 18 , lấy api về đưa vào useState rồi xuất ra blog bằng hàm renderDâta
 
         *làm thẳng vào file blog  ( lấy api phần nào , làm phần đó : lấy api file nào , làm file đó )
 

@@ -281,7 +281,7 @@ function NONAME() {
             value={inputs.detail}
             rows={4}
             cols={40}
-          />
+          ></textarea>
           <button type="submit" className="btn btn-default">
             Create
           </button>

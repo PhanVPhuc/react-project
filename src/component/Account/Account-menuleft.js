@@ -21,7 +21,7 @@ function AccountMenuLeft() {
                       href="#update"
                     >
                       <span className="badge pull-right">
-                        <i className="fa fa-plus" />
+                        <i className="fa fa-chevron-right"></i>
                       </span>
                       Account Update
                     </a>
@@ -31,16 +31,17 @@ function AccountMenuLeft() {
               <div className="panel panel-default">
                 <div className="panel-heading">
                   <h4 className="panel-title">
-                    <a
+                    <Link
+                      to="/account/my-product"
                       data-toggle="collapse"
                       data-parent="#accordian"
                       href="#products"
                     >
                       <span className="badge pull-right">
-                        <i className="fa fa-plus" />
+                        <i className="fa fa-chevron-right"></i>
                       </span>
                       My products
-                    </a>
+                    </Link>
                   </h4>
                 </div>
                 <div className="panel-heading">

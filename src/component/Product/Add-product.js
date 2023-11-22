@@ -26,6 +26,7 @@ function AddProduct() {
     const nameInputs = e.target.name;
     //  e.target.name get name để làm key cho inputs
     const valueInputs = e.target.value;
+    console.log(nameInputs);
     // e.target.value get value để làm value cho inputs
     setInputs((state) => ({ ...state, [nameInputs]: valueInputs }));
   }
@@ -121,7 +122,124 @@ function AddProduct() {
 
   // handle submit xử lí tại đây-----------------
   function handleSubmit(e) {
+    console.log(inputs);
     e.preventDefault();
+    let flag = true;
+    let errorsSubmit = {};
+    const maxSize = 1024 * 1024;
+    const typeName = ["png", "jpeg", "jpg"];
+    //  thử xài switch case thay vì if cơ bản
+    // switch (inputs) {
+    //   case 0(inputs.name == ""):
+    //     errorsSubmit.name = "Please input product name";
+    //     alert("error name");
+    //     flag = false;
+    //     break;
+    //   case 1(inputs.price == ""):
+    //     errorsSubmit.price = " Please input product price";
+    //     alert("error price");
+    //     flag = false;
+    //     break;
+    //   case 2(inputs.brand == ""):
+    //     errorsSubmit.brand = " Please select product brand";
+    //     flag = false;
+    //     break;
+    //   case 3(inputs.category == ""):
+    //     errorsSubmit.category = " Please select product category";
+    //     flag = false;
+    //     break;
+    //   default:
+    // }
+    if (inputs.name == "") {
+      errorsSubmit.name = "Vui lòng nhập tên sản phẩm";
+      flag = false;
+    }
+    if (inputs.price == "") {
+      errorsSubmit.price = "Vui lòng nhập giá sản phẩm";
+      flag = false;
+    }
+    if (inputs.category == "") {
+      errorsSubmit.category = "Vui lòng chọn loại sản phẩm";
+      flag = false;
+    }
+    if (inputs.brand == "") {
+      errorsSubmit.brand = "Vui lòng chọn hãng của sản phẩm";
+      flag = false;
+    }
+    if (inputs.company == "") {
+      errorsSubmit.company = "Vui lòng chọn công ty phân phối của mặt hàng";
+      flag = false;
+    }
+    if (inputs.detail == "") {
+      errorsSubmit.detail = "Vui long nhập mô tả sản phẩm";
+      flag = false;
+    }
+    if (file == "") {
+      errorsSubmit.file = "Vui long upload anh ? ";
+    } else {
+      console.log(file);
+
+      let setSize = file[0].size;
+      let setName = file[0].name;
+
+      if (setSize > maxSize) {
+        errorsSubmit.file = "File phai nho hon 1mb";
+        flag = false;
+      }
+
+      // Kiểm tra định dạng file
+      let validExtensions = ["png", "jpg", "jpeg"];
+      let fileExtension = setName.split(".").pop().toLowerCase();
+      if (!validExtensions.includes(fileExtension)) {
+        errorsSubmit.file = "File ảnh không hợp lệ!";
+        flag = false;
+      }
+    }
+    if (flag == true) {
+      // lấy token từ local về để xác minh danh tính và làm config
+      const userData = JSON.parse(localStorage.getItem("Userdata"));
+      // console.log(userData);
+
+      let url =
+        "http://localhost/laravel8/laravel8/public/api/user/product/add";
+      let accessToken = userData.data.token;
+      // console.log(accessToken);
+      // prettier-ignore
+      let config = {
+          headers: {
+            "Authorization": "Bearer " + accessToken,
+            "Content-Type": "application/x-www-form-urlencoded",
+           " Accept": "application/json",
+          },
+        };
+      // gửi các param = api sang formData để xử lí
+      const formData = new FormData();
+      formData.append("name", inputs.name);
+      formData.append("price", inputs.price);
+      formData.append("category", inputs.category);
+      formData.append("brand", inputs.brand);
+      formData.append("company", inputs.company);
+      formData.append("detail", inputs.detail);
+      formData.append("status", inputs.status);
+
+      formData.append("sale", inputs.sale);
+
+      // khi  gửi qua api bằng formData là 1 mảng 2 chiều thì dùng map để gửi
+      // tiếp đó ta truyền toàn bộ file ảnh upload qua api mà k cần mã hoá
+      Object.keys(file).map((key, index) => {
+        formData.append("file[]", file[key]);
+      });
+      axios
+        .post(url, formData, config)
+        .then((res) => {
+          console.log(res);
+          alert("Đăng ký sản phẩm thành công");
+          setErrors("");
+        })
+        .catch((error) => console.log(error));
+    } else {
+      setErrors(errorsSubmit);
+    }
   }
   // end handle submit------------------------
   return (
@@ -179,7 +297,7 @@ function AddProduct() {
             value={inputs.detail}
             rows={4}
             cols={40}
-          />
+          ></textarea>
           <button type="submit" className="btn btn-default">
             Create
           </button>

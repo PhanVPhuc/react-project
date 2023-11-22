@@ -33,7 +33,7 @@ root.render(
           <Route path="/blog/detail/:id" element={<BlogDetail />} />
           <Route path="/404" element={<Error404 />} />
           <Route path="/contact-us" element={<ContactUs />} />
-          <Route path="/shop" element={<MyProduct />} />
+          <Route path="/account/my-product" element={<MyProduct />} />
           <Route path="/product-details" element={<ProductDetail />} />
           <Route path="/Register" element={<Register />} />
           <Route path="/account" element={<Account />} />

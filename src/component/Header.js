@@ -225,10 +225,13 @@ function Header() {
                     </Link>
                     <ul role="menu" className="sub-menu">
                       <li>
-                        <Link to="/shop">Products</Link>
+                        <Link to="/my-product">Products</Link>
+                        {/* lead to all product in system */}
+                        {/* this not gonna work like expected */}
                       </li>
                       <li>
                         <Link to="/product-details">Product Details</Link>
+                      {/* lead to all product detail if have in cart ?  */}
                       </li>
                       <li>
                         <Link to="/check-out">Checkout</Link>
