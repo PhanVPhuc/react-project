@@ -55,10 +55,11 @@ function AccountMenuLeft() {
                       <span className="badge pull-right">
                         <i className="fa fa-chevron-right"></i>
                       </span>
-                      Add products
+                      Add my products
                     </Link>
                   </h4>
                 </div>
+                
               </div>
             </div>
             {/*/Account*/}

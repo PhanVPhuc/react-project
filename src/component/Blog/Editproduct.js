@@ -1,11 +1,18 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
-function AddProduct() {
-  // add product begin
+function EditProduct() {
+  // Edit product begin
   // khai báo các state mình sẽ sử dụng trong component này
+  // tương tự như add
+  // ý tưởng ban đầu là sẽ lấy api của my product về và chọn sản phẩm để edit
+  // và từ đó sẽ in ra các param như update user ( set vào placeholder hoặc value (50/50) để thay đổi giá trị )
+  // làm phần avatar checkbox đã
+  // xuất hình ra 1 dãy rồi chọn cái nào để xoá
+  // sau đó đưa qua api update product
 
+  let params = useParams();
   const [file, setFile] = useState("");
   const [errors, setErrors] = useState({});
   const [brand, setBrand] = useState([]);
@@ -32,11 +39,11 @@ function AddProduct() {
     setInputs((state) => ({ ...state, [nameInputs]: valueInputs }));
   }
   // function xử lí file
-  function handleFile(e) {
-    const getFile = e.target.files;
-    // console.log(getFile);
-    setFile(getFile);
-  }
+  // function handleFile(e) {
+  //   const getFile = e.target.files;
+  //   // console.log(getFile);
+  //   setFile(getFile);
+  // }
   // ------------get brand and category-----------
 
   //  lấy data từ api category-brand
@@ -128,29 +135,6 @@ function AddProduct() {
     let flag = true;
     let errorsSubmit = {};
     const maxSize = 1024 * 1024;
-    const typeName = ["png", "jpeg", "jpg"];
-    //  thử xài switch case thay vì if cơ bản
-    // switch (inputs) {
-    //   case 0(inputs.name == ""):
-    //     errorsSubmit.name = "Please input product name";
-    //     alert("error name");
-    //     flag = false;
-    //     break;
-    //   case 1(inputs.price == ""):
-    //     errorsSubmit.price = " Please input product price";
-    //     alert("error price");
-    //     flag = false;
-    //     break;
-    //   case 2(inputs.brand == ""):
-    //     errorsSubmit.brand = " Please select product brand";
-    //     flag = false;
-    //     break;
-    //   case 3(inputs.category == ""):
-    //     errorsSubmit.category = " Please select product category";
-    //     flag = false;
-    //     break;
-    //   default:
-    // }
     if (inputs.name == "") {
       errorsSubmit.name = "Vui lòng nhập tên sản phẩm";
       flag = false;
@@ -249,7 +233,7 @@ function AddProduct() {
     <div className="col-sm-4">
       <div className="signup-form">
         {/*sign up form*/}
-        <h2>Create Product!</h2>
+        <h2>Edit Product!</h2>
         <ul className="error-form">{renderError()}</ul>
         <form
           style={{ width: "800px" }}
@@ -292,7 +276,7 @@ function AddProduct() {
             onChange={handleInputs}
             value={inputs.company}
           />
-          <input type="file" name="file" onChange={handleFile} multiple />
+          {/* <input type="file" name="file" onChange={handleFile} multiple /> */}
           <textarea
             placeholder="Detail"
             name="detail"
@@ -310,4 +294,4 @@ function AddProduct() {
   );
 }
 
-export default AddProduct;
+export default EditProduct;

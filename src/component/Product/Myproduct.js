@@ -1,11 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-function MyProduct() {
+function MyProduct(props) {
   const [Product, getProduct] = useState([]);
   const userData = JSON.parse(localStorage.getItem("Userdata"));
   const userId = userData.data.Auth.id;
-  console.log(userId);
+  // console.log(userId);
   const accessToken = userData.data.token;
   // console.log(accessToken);
   // prettier-ignore
@@ -31,6 +32,27 @@ function MyProduct() {
   }, []);
   // console.log(Product);
 
+  function deleteProduct(e) {
+    // Khi bấm vào thì lấy ID của product , sau đó ta gửi sang file Deleteproduct
+    // xài e.target.id để lấy id của nó
+    const proId = e.target.id;
+    // console.log(proId);
+    const url =
+      "http://localhost/laravel8/laravel8/public/api/user/product/delete/" +
+      proId;
+    axios.get(url, config).then((res) => {
+      console.log(res);
+      getProduct(res.data.data);
+    });
+    // console.log(url);
+  }
+  function Handlequantity() {
+    // lấy quantity trong api ra
+    //  sửa cái quantity khi click + và -
+    // rồi post lên api để lấy dữ liệu mới về
+    // VẤN ĐỀ LÀ KHÔNG CÓ API ĐÓ ĐỂ LÀM :D
+  }
+
   function Renderproduct() {
     if (Object.keys.length > 0) {
       // kiểm tra obj có không
@@ -51,7 +73,7 @@ function MyProduct() {
                 userId +
                 "/" +
                 value;
-              console.log(image);
+              // console.log(image);
               // for (let i = 0; i < value.length; i++) {
               //   console.log(value, i);
               // }
@@ -81,7 +103,11 @@ function MyProduct() {
             </td>
             <td className="cart_quantity">
               <div className="cart_quantity_button">
-                <a className="cart_quantity_up" href="#">
+                <a
+                  className="cart_quantity_up"
+                  value="+"
+                  onClick={Handlequantity}
+                >
                   +
                 </a>
                 <input
@@ -92,18 +118,42 @@ function MyProduct() {
                   autoComplete="off"
                   size={2}
                 />
-                <a className="cart_quantity_down" href="#">
+                <a
+                  className="cart_quantity_down"
+                  value="-"
+                  onClick={Handlequantity}
+                >
                   -
                 </a>
               </div>
             </td>
             <td className="cart_total">
-              <p className="cart_total_price" />
+              <p className="cart_total_price">{Product[key].price}</p>
             </td>
             <td className="cart_delete">
-              <a className="cart_quantity_delete" href="#">
+              <a
+                id={Product[key].id}
+                className="cart_quantity_delete"
+                onClick={deleteProduct}
+              >
                 <i className="fa fa-times" />
               </a>
+            </td>
+            <td>
+              <div className="panel-heading">
+                <h4 className="panel-title">
+                  <Link
+                    to={"/account/edit-product/" + Product[key].id}
+                    data-toggle="collapse"
+                    data-parent="#accordian"
+                    href="#products"
+                  >
+                    <span className="badge pull-right">
+                      <i className="fa fa-chevron-right"></i>
+                    </span>
+                  </Link>
+                </h4>
+              </div>
             </td>
           </tr>
         );

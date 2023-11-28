@@ -18,6 +18,7 @@ import Register from "./component/member/Register";
 import Maincontent from "./component/MainContent";
 import Account from "./component/Account/Account";
 import Addproduct from "./component/Product/Add-product";
+import EditProduct from "./component/Blog/Editproduct";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -38,6 +39,7 @@ root.render(
           <Route path="/Register" element={<Register />} />
           <Route path="/account" element={<Account />} />
           <Route path="/account/add-product" element={<Addproduct />} />
+          <Route path="/account/edit-product" element={<EditProduct />} />
         </Routes>
       </App>
     </Router>
