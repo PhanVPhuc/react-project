@@ -17,7 +17,7 @@ function EditProduct() {
   const [errors, setErrors] = useState({});
   const [brand, setBrand] = useState([]);
   const [category, setCategory] = useState([]);
-  const [inputs, setInputs] = useState({
+  const [product, setProduct] = useState({
     name: "",
     price: "",
     category: "",
@@ -28,22 +28,61 @@ function EditProduct() {
     company: "",
     detail: "",
   });
+  const userData = JSON.parse(localStorage.getItem("Userdata"));
+  const userId = userData.data.Auth.id;
+  // console.log(userId);
+  const accessToken = userData.data.token;
 
-  // function xử lí inputs
+  // get item data
+  // prettier-ignore
+  let config = {
+    headers: {
+      "Authorization": "Bearer " + accessToken,
+      "Content-Type": "application/x-www-form-urlencoded",
+      "Accept": "application/json",
+    },
+  };
+  const url =
+    "http://localhost/laravel8/laravel8/public/api/user/product/" + params.id;
+
+  useEffect(() => {
+    axios
+      .get(url, config)
+      .then((res) => {
+        if (res) {
+          // setData(res.data.data);
+          if (res.data.data) {
+            setProduct({
+              // gán giá trị vào data để đưa nó vào value
+              name: res.data.data.name,
+              price: res.data.data.price,
+              category: res.data.data.id_category,
+              brand: res.data.data.id_brand,
+              status: res.data.data.status,
+              sale: res.data.data.sale,
+              company: res.data.data.company_profile,
+              detail: res.data.data.detail,
+              image: res.data.data.image,
+            });
+          }
+        } else {
+          alert("error");
+        }
+      })
+      .catch((error) => console.log(error));
+  }, []);
+
+  console.log(product);
+
+  // function xử lí input
   function handleInputs(e) {
     const nameInputs = e.target.name;
     //  e.target.name get name để làm key cho inputs
     const valueInputs = e.target.value;
     console.log(nameInputs);
     // e.target.value get value để làm value cho inputs
-    setInputs((state) => ({ ...state, [nameInputs]: valueInputs }));
+    setProduct((state) => ({ ...state, [nameInputs]: valueInputs }));
   }
-  // function xử lí file
-  // function handleFile(e) {
-  //   const getFile = e.target.files;
-  //   // console.log(getFile);
-  //   setFile(getFile);
-  // }
   // ------------get brand and category-----------
 
   //  lấy data từ api category-brand
@@ -55,7 +94,6 @@ function EditProduct() {
     axios
       .get("http://localhost/laravel8/laravel8/public/api/category-brand")
       .then((res) => {
-        // console.log(res.data);
         setBrand(res.data.brand);
         setCategory(res.data.category);
       })
@@ -88,7 +126,7 @@ function EditProduct() {
 
   // render sale -----------------------------
   function renderSale() {
-    if (inputs.status == 0) {
+    if (product.status == 0) {
       return (
         <div style={{ width: "200px" }}>
           <input
@@ -97,7 +135,7 @@ function EditProduct() {
             name="sale"
             onChange={handleInputs}
             placeholder="ex : 10"
-            value={inputs.sale}
+            value={product.sale}
           />
           <span
             style={{
@@ -128,34 +166,100 @@ function EditProduct() {
   }
   // render error end------------------------
 
+  // render all here =================================
+  function RenderProduct() {
+    if (Object.keys.length > 0) {
+      return (
+        <form
+          style={{ width: "800px" }}
+          action="#"
+          encType="multipart/form-data"
+          // onSubmit={handleSubmit}
+        >
+          <input
+            type="text"
+            name="name"
+            placeholder={product.name}
+            onChange={handleInputs}
+            value={product.name}
+          />
+          <input
+            type="text"
+            name="price"
+            placeholder={product.price}
+            onChange={handleInputs}
+            value={product.price}
+          />
+          <select name="category" onChange={handleInputs}>
+            <option value="">Please chose category</option>
+            {renderCategory()}
+          </select>
+          <select name="brand" onChange={handleInputs}>
+            <option value="">Please chose brand</option>
+            {renderBrand()}
+          </select>
+
+          <select
+            name={product.status}
+            value={product.status}
+            onChange={handleInputs}
+          >
+            <option value="1">New</option>
+            <option value="0">Sale</option>
+          </select>
+          {renderSale()}
+          <input
+            type="text"
+            placeholder={product.company}
+            name="company"
+            onChange={handleInputs}
+            value={product.company}
+          />
+          <textarea
+            placeholder={product.detail}
+            name="detail"
+            onChange={handleInputs}
+            value={product.detail}
+            rows={4}
+            cols={40}
+          ></textarea>
+          <button type="submit" className="btn btn-default">
+            Create
+          </button>
+        </form>
+      );
+    }
+  }
+  // end render what we need
+
   // handle submit xử lí tại đây-----------------
   function handleSubmit(e) {
-    console.log(inputs);
+    console.log(product);
     e.preventDefault();
     let flag = true;
     let errorsSubmit = {};
     const maxSize = 1024 * 1024;
-    if (inputs.name == "") {
+    if (product.name == "") {
       errorsSubmit.name = "Vui lòng nhập tên sản phẩm";
       flag = false;
     }
-    if (inputs.price == "") {
+    if (product.price == "") {
       errorsSubmit.price = "Vui lòng nhập giá sản phẩm";
       flag = false;
     }
-    if (inputs.category == "") {
+    if (product.category == "") {
       errorsSubmit.category = "Vui lòng chọn loại sản phẩm";
       flag = false;
     }
-    if (inputs.brand == "") {
+    if (product.brand == "") {
       errorsSubmit.brand = "Vui lòng chọn hãng của sản phẩm";
       flag = false;
     }
-    if (inputs.company == "") {
+    if (product.company == "") {
       errorsSubmit.company = "Vui lòng chọn công ty phân phối của mặt hàng";
       flag = false;
     }
-    if (inputs.detail == "") {
+    if (product.detail == "") {
       errorsSubmit.detail = "Vui long nhập mô tả sản phẩm";
       flag = false;
     }
@@ -186,7 +290,8 @@ function EditProduct() {
       // console.log(userData);
 
       let url =
-        "http://localhost/laravel8/laravel8/public/api/user/product/add";
+        "http://localhost/laravel8/laravel8/public/api/user/product/update/" +
+        params.id;
       let accessToken = userData.data.token;
       // console.log(accessToken);
       // prettier-ignore
@@ -197,28 +302,12 @@ function EditProduct() {
            " Accept": "application/json",
           },
         };
-      // gửi các param = api sang formData để xử lí
-      const formData = new FormData();
-      formData.append("name", inputs.name);
-      formData.append("price", inputs.price);
-      formData.append("category", inputs.category);
-      formData.append("brand", inputs.brand);
-      formData.append("company", inputs.company);
-      formData.append("detail", inputs.detail);
-      formData.append("status", inputs.status);
 
-      formData.append("sale", inputs.sale);
-
-      // khi  gửi qua api bằng formData là 1 mảng 2 chiều thì dùng map để gửi
-      // tiếp đó ta truyền toàn bộ file ảnh upload qua api mà k cần mã hoá
-      Object.keys(file).map((key, index) => {
-        formData.append("file[]", file[key]);
-      });
       axios
-        .post(url, formData, config)
+        .post(url, product, config)
         .then((res) => {
           console.log(res);
-          alert("Đăng ký sản phẩm thành công");
+          alert("Sửa sản phẩm thành công");
           setErrors("");
           // auto reload when add product success
           window.location.reload();
@@ -229,69 +318,21 @@ function EditProduct() {
     }
   }
   // end handle submit------------------------
+
   return (
     <div className="col-sm-4">
       <div className="signup-form">
         {/*sign up form*/}
         <h2>Edit Product!</h2>
         <ul className="error-form">{renderError()}</ul>
-        <form
-          style={{ width: "800px" }}
-          action="#"
-          encType="multipart/form-data"
-          onSubmit={handleSubmit}
-        >
-          <input
-            type="text"
-            placeholder="Name"
-            name="name"
-            onChange={handleInputs}
-            value={inputs.name}
-          />
-          <input
-            type="text"
-            placeholder="Price"
-            name="price"
-            onChange={handleInputs}
-            value={inputs.price}
-          />
-          <select name="category" onChange={handleInputs}>
-            <option value="">Please chose category</option>
-            {renderCategory()}
-          </select>
-          <select name="brand" onChange={handleInputs}>
-            <option value="">Please chose brand</option>
-            {renderBrand()}
-          </select>
-
-          <select name="status" value={inputs.status} onChange={handleInputs}>
-            <option value="1">New</option>
-            <option value="0">Sale</option>
-          </select>
-          {renderSale()}
-          <input
-            type="text"
-            placeholder="Company profile"
-            name="company"
-            onChange={handleInputs}
-            value={inputs.company}
-          />
-          {/* <input type="file" name="file" onChange={handleFile} multiple /> */}
-          <textarea
-            placeholder="Detail"
-            name="detail"
-            onChange={handleInputs}
-            value={inputs.detail}
-            rows={4}
-            cols={40}
-          ></textarea>
-          <button type="submit" className="btn btn-default">
-            Create
-          </button>
-        </form>
+        {RenderProduct()}
       </div>
     </div>
   );
 }
 
 export default EditProduct;
+
+{
+  /* <input type="file" name="file" onChange={handleFile} multiple /> */
+}

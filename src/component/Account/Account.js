@@ -36,6 +36,7 @@ function Account() {
         avatar: userData.avatar,
         id: userData.id,
       });
+      // làm ở trong  , cho chạy if ở ngoài sẽ bị lỗi re-render
     }
   }, []);
 

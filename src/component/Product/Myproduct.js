@@ -149,6 +149,7 @@ function MyProduct(props) {
                     href="#products"
                   >
                     <span className="badge pull-right">
+                      Change
                       <i className="fa fa-chevron-right"></i>
                     </span>
                   </Link>

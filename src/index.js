@@ -39,7 +39,7 @@ root.render(
           <Route path="/Register" element={<Register />} />
           <Route path="/account" element={<Account />} />
           <Route path="/account/add-product" element={<Addproduct />} />
-          <Route path="/account/edit-product" element={<EditProduct />} />
+          <Route path="/account/edit-product/:id" element={<EditProduct />} />
         </Routes>
       </App>
     </Router>
