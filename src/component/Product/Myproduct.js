@@ -46,12 +46,8 @@ function MyProduct(props) {
     });
     // console.log(url);
   }
-  function Handlequantity() {
-    // lấy quantity trong api ra
-    //  sửa cái quantity khi click + và -
-    // rồi post lên api để lấy dữ liệu mới về
-    // VẤN ĐỀ LÀ KHÔNG CÓ API ĐÓ ĐỂ LÀM :D
-  }
+
+  console.log(Product);
 
   function Renderproduct() {
     if (Object.keys.length > 0) {
@@ -103,11 +99,7 @@ function MyProduct(props) {
             </td>
             <td className="cart_quantity">
               <div className="cart_quantity_button">
-                <a
-                  className="cart_quantity_up"
-                  value="+"
-                  onClick={Handlequantity}
-                >
+                <a className="cart_quantity_up" value="+">
                   +
                 </a>
                 <input
@@ -118,11 +110,7 @@ function MyProduct(props) {
                   autoComplete="off"
                   size={2}
                 />
-                <a
-                  className="cart_quantity_down"
-                  value="-"
-                  onClick={Handlequantity}
-                >
+                <a className="cart_quantity_down" value="-">
                   -
                 </a>
               </div>

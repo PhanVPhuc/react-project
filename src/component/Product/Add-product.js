@@ -237,7 +237,7 @@ function AddProduct() {
           alert("Đăng ký sản phẩm thành công");
           setErrors("");
           // auto reload when add product success
-          window.location.reload();
+          // window.location.reload();
         })
         .catch((error) => console.log(error));
     } else {

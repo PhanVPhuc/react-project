@@ -32,6 +32,7 @@ function EditProduct() {
   const userId = userData.data.Auth.id;
   // console.log(userId);
   const accessToken = userData.data.token;
+  const [delPic, setDelPic] = useState("");
 
   // get item data
   // prettier-ignore
@@ -72,6 +73,7 @@ function EditProduct() {
       .catch((error) => console.log(error));
   }, []);
 
+  // kiểm tra
   console.log(product);
 
   // function xử lí input
@@ -83,6 +85,14 @@ function EditProduct() {
     // e.target.value get value để làm value cho inputs
     setProduct((state) => ({ ...state, [nameInputs]: valueInputs }));
   }
+
+  // function xử lí file
+  function handleFile(e) {
+    const getFile = e.target.files;
+    // console.log(getFile);
+    setFile(getFile);
+  }
+
   // ------------get brand and category-----------
 
   //  lấy data từ api category-brand
@@ -153,6 +163,56 @@ function EditProduct() {
   }
   // end render sale----------------------
 
+  // render del pic ? --------------------------
+
+  function renderImage() {
+    // kiểm tra mảng
+    let imageArray = product.image;
+    // console.log(imageArray);
+
+    function delImage(e) {
+      // tạo biến để bắt đầu xoá ảnh
+      const value = e.target.value;
+      setDelPic((state) => [...state, value]);
+      console.log(delPic);
+    }
+
+    // bỏ ảnh vào đây
+    if (imageArray.length > 0) {
+      // return chạy map
+      return imageArray.map((item, key) => {
+        const image =
+          "http://localhost/laravel8/laravel8/public/upload/product/" +
+          userId +
+          "/" +
+          item;
+        // dùng link api này get vẫn được src ảnh
+        // ngu thía nhờ
+        // console.log(image);
+        return (
+          <li style={{ display: "inline-block" }}>
+            <lable for={key}>
+              <img
+                src={image}
+                width={65}
+                height={65}
+                style={{ marginRight: "10px" }}
+              />
+            </lable>
+            <input
+              type="checkbox"
+              value={item}
+              onClick={delImage}
+              style={{ width: "15px", height: "15px", marginLeft: "25px" }}
+            />
+          </li>
+        );
+      });
+    }
+  }
+
+  // end render del pic-------------------------
+
   // render error begin --------------------
 
   function renderError() {
@@ -199,11 +259,7 @@ function EditProduct() {
             {renderBrand()}
           </select>
 
-          <select
-            name={product.status}
-            value={product.status}
-            onChange={handleInputs}
-          >
+          <select name="status" value={product.status} onChange={handleInputs}>
             <option value="1">New</option>
             <option value="0">Sale</option>
           </select>
@@ -215,6 +271,8 @@ function EditProduct() {
             onChange={handleInputs}
             value={product.company}
           />
+          <input type="file" name="file" onChange={handleFile} multiple />
+          <ul style={{ listStyle: "none" }}>{renderImage()}</ul>
           <textarea
             placeholder={product.detail}
             name="detail"
@@ -223,8 +281,12 @@ function EditProduct() {
             rows={4}
             cols={40}
           ></textarea>
-          <button type="submit" className="btn btn-default">
-            Create
+          <button
+            type="submit"
+            className="btn btn-default"
+            onClick={handleSubmit}
+          >
+            Change
           </button>
         </form>
       );
@@ -302,9 +364,32 @@ function EditProduct() {
            " Accept": "application/json",
           },
         };
+      // gửi các param = api sang formData để xử lí
+      const formData = new FormData();
+      formData.append("name", product.name);
+      formData.append("price", product.price);
+      formData.append("category", product.category);
+      formData.append("brand", product.brand);
+      formData.append("company", product.company);
+      formData.append("detail", product.detail);
+      formData.append("status", product.status);
+      formData.append("sale", product.sale);
 
+      // khi  gửi qua api bằng formData là 1 mảng 2 chiều thì dùng map để gửi
+      // tiếp đó ta truyền toàn bộ file ảnh upload qua api mà k cần mã hoá
+      Object.keys(file).map((key, index) => {
+        formData.append("file[]", file[key]);
+      });
+      // khi  gửi qua api bằng formData là 1 mảng 2 chiều thì dùng map để gửi
+      // tiếp đó ta truyền toàn bộ file ảnh upload qua api mà k cần mã hoá
+      // ta đổi tên để gửi tên ảnh cần xoá sang api
+      Object.keys(delPic).map((key, index) => {
+        formData.append("avatarCheckBox[]", delPic[key]);
+      });
+      // file lấy từ delete để xoá ảnh
       axios
-        .post(url, product, config)
+        // api thieu formdata , tham khao add product
+        .post(url, formData, config)
         .then((res) => {
           console.log(res);
           alert("Sửa sản phẩm thành công");
