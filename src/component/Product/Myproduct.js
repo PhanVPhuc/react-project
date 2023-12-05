@@ -63,6 +63,7 @@ function MyProduct(props) {
           // console.log(imageSrc);
 
           return imageSrc.map((value, key) => {
+            // lấy hình đầu tiên của mảng array
             if (key === 0) {
               const image =
                 "http://localhost/laravel8/laravel8/public/upload/product/" +
@@ -84,7 +85,6 @@ function MyProduct(props) {
           });
         }
 
-        // lấy hình đầu tiên của mảng array
         return (
           <tr key={index}>
             {HandlePI()}

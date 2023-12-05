@@ -7,6 +7,16 @@ import AccountMenuLeft from "./component/Account/Account-menuleft";
 
 function App(props) {
   let param1 = useLocation();
+
+  function renderMenuLeft() {
+    if (param1["pathname"].includes("account")) {
+      return <AccountMenuLeft />;
+    } else if (param1["pathname"].includes("cart")) {
+      return null;
+    } else {
+      return <Sidebar />;
+    }
+  }
   return (
     <div>
       <Header />
@@ -14,11 +24,12 @@ function App(props) {
         <div className="container">
           <div className="row">
             {/* <Sidebar /> */}
-            {param1["pathname"].includes("account") ? (
+            {renderMenuLeft()}
+            {/* {param1["pathname"].includes("account") ? (
               <AccountMenuLeft />
             ) : (
               <Sidebar />
-            )}
+            )} */}
 
             {props.children}
           </div>

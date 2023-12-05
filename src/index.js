@@ -35,7 +35,7 @@ root.render(
           <Route path="/404" element={<Error404 />} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/account/my-product" element={<MyProduct />} />
-          <Route path="/product-details" element={<ProductDetail />} />
+          <Route path="/product-details/:id" element={<ProductDetail />} />
           <Route path="/Register" element={<Register />} />
           <Route path="/account" element={<Account />} />
           <Route path="/account/add-product" element={<Addproduct />} />
