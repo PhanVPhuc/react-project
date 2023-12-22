@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { AppContext } from "./AppContext";
 
 function Header() {
   const auth = JSON.parse(localStorage.getItem("Auth"));
   const token = JSON.parse(localStorage.getItem("Token"));
   const flag = JSON.parse(localStorage.getItem("Flag"));
   const navigate = useNavigate();
+  const cart = JSON.parse(localStorage.getItem("cart"));
+
+  const { getCart, getQty } = useContext(AppContext);
+  console.log(getCart);
+  // đã lấy được data , phải trùng tên mới lấy được data
   function handleLogout() {
     // console.log(auth);
     // console.log(token);
@@ -35,6 +41,27 @@ function Header() {
     navigate("/login");
   }
 
+  function cartContext() {
+    // console.log(cart);
+    // getQty(totalCart);
+
+    function renderCC() {
+      let finalTotalCart = 0; // Khởi tạo biến để lưu trữ giá trị cuối cùng của totalCart
+      if (getCart.length > 0) {
+        finalTotalCart = getCart.reduce((acc, item) => {
+          return acc + item.qty;
+        }, 0);
+        console.log(finalTotalCart);
+        getQty(finalTotalCart);
+        return <p> {finalTotalCart}</p>;
+      }
+    }
+    return (
+      <Link to="/cart">
+        <i className="fa fa-shopping-cart" /> Cart {renderCC()}
+      </Link>
+    );
+  }
   return (
     <header id="header">
       {/*header*/}
@@ -151,9 +178,9 @@ function Header() {
                     </Link>
                   </li>
                   <li>
-                    <a href="#">
+                    <Link to="/my-wishlist">
                       <i className="fa fa-star" /> Wishlist
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     <Link to="/check-out">
@@ -161,9 +188,10 @@ function Header() {
                     </Link>
                   </li>
                   <li>
-                    <Link to="/cart">
+                    {/* <Link to="/cart">
                       <i className="fa fa-shopping-cart" /> Cart
-                    </Link>
+                    </Link> */}
+                    {cartContext()}
                   </li>
                   <li>
                     {/* HELP Me

@@ -4,6 +4,7 @@ import axios from "axios";
 function ProductDetail() {
   let params = useParams();
   const [PDetail, getPDtail] = useState([]);
+  const [pic, getPic] = useState([]);
   const url =
     "http://localhost/laravel8/laravel8/public/api/product/detail/" + params.id;
   useEffect(() => {
@@ -12,6 +13,10 @@ function ProductDetail() {
       .then((res) => {
         if (res.data.response == "success") {
           getPDtail(res.data.data);
+
+          // -lay hinh dau tien ra dua vao useState
+          getPic(res.data.data.image);
+          // - lay hinh nay hien thi xuong day
         }
       })
       .catch(function (error) {
@@ -19,27 +24,75 @@ function ProductDetail() {
       });
   }, []);
   console.log(PDetail);
+  console.log(pic);
 
-  function renderProductDetail() {
+  function renderProductDetail(e) {
     if (Object.keys.length > 0) {
-      return (
-        <div className="product-details">
-          {/*product-details*/}
-          <div className="col-sm-5">
+      // pic product spider
+      function picSlider(e) {
+        // PDetail.image.split(",");
+        // JSON.parse(PDetail.image);
+        function picRender() {
+          if (PDetail.image) {
+            let image = JSON.parse(PDetail.image);
+            // console.log(image);
+            //  đã có image
+            // ..../public/upload/product/2/ + hinhanh
+
+            if (image.length > 0) {
+              return image.map((item, key) => {
+                let imageUrl =
+                  "http://localhost/laravel8/laravel8/public/upload/product/" +
+                  PDetail.id_user +
+                  "/" +
+                  item;
+                return (
+                  <a onClick={showPicProd}>
+                    <img
+                      src={imageUrl}
+                      alt=""
+                      style={{
+                        width: "90px",
+                        height: "90px",
+                        display: "inline-block",
+                      }}
+                    />
+                  </a>
+                );
+              });
+            }
+          }
+        }
+        function showPicProd(e) {
+          let picSrc = e.target.src;
+          // console.log(picSrc);
+          // truyền dữ liệu vào state pic để get ảnh khi click
+          getPic(picSrc);
+        }
+        function renderPicProd() {
+          let picSrc = pic;
+          return (
             <div className="view-product">
-              <img src="images/product-details/1.jpg" alt="" />
-              <a href="images/product-details/1.jpg" rel="prettyPhoto">
+              <img src={picSrc} alt="" />
+              <a href={picSrc} rel="prettyPhoto">
                 <h3>ZOOM</h3>
               </a>
             </div>
+          );
+        }
+
+        return (
+          <div className="col-sm-5">
+            {renderPicProd()}
             <div
               id="similar-product"
-              className="carousel slide"
+              className="carosel slide"
               data-ride="carousel"
             >
               {/* Wrapper for slides */}
               <div className="carousel-inner">
-                <div className="item active">
+                <div className="item active">{picRender()}</div>
+                {/* <div className="item">
                   <a href="#">
                     <img src="images/product-details/similar1.jpg" alt="" />
                   </a>
@@ -49,31 +102,10 @@ function ProductDetail() {
                   <a href="#">
                     <img src="images/product-details/similar3.jpg" alt="" />
                   </a>
-                </div>
-                <div className="item">
-                  <a href="#">
-                    <img src="images/product-details/similar1.jpg" alt="" />
-                  </a>
-                  <a href="#">
-                    <img src="images/product-details/similar2.jpg" alt="" />
-                  </a>
-                  <a href="#">
-                    <img src="images/product-details/similar3.jpg" alt="" />
-                  </a>
-                </div>
-                <div className="item">
-                  <a href="#">
-                    <img src="images/product-details/similar1.jpg" alt="" />
-                  </a>
-                  <a href="#">
-                    <img src="images/product-details/similar2.jpg" alt="" />
-                  </a>
-                  <a href="#">
-                    <img src="images/product-details/similar3.jpg" alt="" />
-                  </a>
-                </div>
+                </div> */}
               </div>
               {/* Controls */}
+              {/* mấy cái này nâng cao hơn tí mà mình nghĩ là cần toán tử để click vào sẽ next sang 1 cái imageurl khác , sẽ khá khó */}
               <a
                 className="left item-control"
                 href="#similar-product"
@@ -90,6 +122,13 @@ function ProductDetail() {
               </a>
             </div>
           </div>
+        );
+      }
+
+      return (
+        <div className="product-details">
+          {/*product-details*/}
+          {picSlider()}
           <div className="col-sm-7">
             <div className="product-information">
               {/*/product-information*/}

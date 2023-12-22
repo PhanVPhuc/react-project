@@ -42,6 +42,7 @@ function Maincontent() {
     }));
 
     localStorage.setItem("cart", JSON.stringify(cart));
+    
   }
   // test
   // console.log(cart);
